@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import '../../public/css/styles.css';
+import './templates/assets/css/styles.css';
 @Component({
-    selector: 'my-app',
+    selector: 'main-app',
     templateUrl: 'templates/app.component.html'
 })
 export class AppComponent {
