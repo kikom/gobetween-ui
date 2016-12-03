@@ -3,7 +3,7 @@ import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import "rxjs/add/observable/interval";
 import * as _ from "lodash";
-import async = require("async");
+var async = require("async");
 
 
 @Injectable()

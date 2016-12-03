@@ -1,0 +1,61 @@
+
+<div class="ui-table">
+    <div class="table-line" *ngFor="let item of rows; let i = index;">
+        <div class="content-wrapper">
+            <div class="table-content">
+                <div class="table-row">
+                    <div class="table-column column-name">
+                        <div class="column-content left">
+                            <span class="server-name">Gagarin</span>
+                        </div>
+                    </div>
+                    <div class="table-column column-bind">
+                        <div class="column-content">
+                            <span> 999.999.999.999</span>
+                        </div>
+                    </div>
+                    <div class="table-column column-protocol without-border">
+                        <div class="column-content">
+                            <span class="measure">tcp</span>
+                        </div>
+                    </div>
+                    <div class="table-column column-connection">
+                        <div class="column-content">
+                            <span class="ui-image arrow-connection"></span>&#160;
+                            <span>
+                                555
+                            </span>
+                        </div>
+                    </div>
+                    <div class="table-column column-rx">
+                        <div class="column-content">
+                            <div>
+                                <div class="text-align-center">
+                                    <span class="measure">rx</span>
+                                </div>
+                                <span class="ui-image arrow-green"></span>&#160;<span>111</span>
+                                <span class="measure">mb/s</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-column column-tx">
+                        <div class="column-content space-around">
+                            <div>
+                                <div class="text-align-center">
+                                    <span class="measure">tx</span>
+                                </div>
+                                <span class="ui-image arrow-red"></span>&#160;<span>111</span>
+                                <span class="measure">mb/s</span>
+                            </div>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-detail">
+                    <a class="ui-image arrow-blue" routerLink="/info" routerLinkActive="active"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

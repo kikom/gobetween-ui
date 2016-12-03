@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {ApiService} from "./services/api.service";
 
 @Component({
-    selector: 'servers',
+    selector: 'page-servers',
     templateUrl: 'templates/servers.component.html'
 })
 

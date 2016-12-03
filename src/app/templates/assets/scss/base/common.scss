@@ -1,0 +1,85 @@
+
+
+.text-align-left{
+  text-align: left;
+}
+
+.text-align-right{
+  text-align: right;
+}
+
+.text-align-center{
+  text-align: center;
+}
+
+.content-wrapper{
+  display: block;
+  max-width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+
+.ui-image{
+
+  &.arrow-green{
+
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background: url("../images/arrow_green.svg");
+  }
+
+  &.arrow-red{
+
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background: url("../images/arrow_red.svg");
+  }
+
+  &.arrow-blue{
+
+    display: inline-block;
+    width: 11px;
+    height: 21px;
+    background: url("../images/arrow_blue.svg");
+  }
+
+  &.arrow-connection{
+
+    display: inline-block;
+    width: 15px;
+    height: 13px;
+    background: url("../images/arrow_connection.svg");
+  }
+
+  &.arrow-dropdown{
+
+    display: inline-block;
+    width: 21px;
+    height: 11px;
+    background: url("../images/arrow_dropdown.svg");
+  }
+
+  &.arrow-gray{
+
+    display: inline-block;
+    width: 16px;
+    height: 6px;
+    background: url("../images/arrow_gray.svg");
+  }
+
+  &.close{
+
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("../images/close.svg");
+  }
+}
+
+
+.page{
+  position: relative;
+}

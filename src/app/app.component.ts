@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import './templates/assets/css/styles.css';
+import "./templates/assets/scss/styles.scss";
 
 @Component({
     selector: 'gobetween-app',
-    templateUrl: 'templates/app.component.html',
-    styles: ['templates/assets/css/styles.css']
+    templateUrl: 'templates/app.component.html'
 })
 
 export class AppComponent {

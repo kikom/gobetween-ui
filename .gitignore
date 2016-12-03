@@ -1,4 +1,6 @@
 .gitignore
+npm_debug.log
 dist/
 node_modules/
 typings/
+.idea/

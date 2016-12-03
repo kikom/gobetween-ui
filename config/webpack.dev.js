@@ -8,7 +8,7 @@ DefinePlugin = require('webpack/lib/DefinePlugin'),
 ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 
 module.exports = webpackMerge(commonConfig, {
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'source-map',
 
     output: {
         path: helpers.root('dist'),

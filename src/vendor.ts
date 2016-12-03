@@ -1,8 +1,8 @@
 // RxJS
 import 'rxjs'
 
-import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap.css';
 
 import 'jquery'
-import 'bootstrap/dist/js/bootstrap.min.js';
+//import 'bootstrap/dist/js/bootstrap.min.js';
 

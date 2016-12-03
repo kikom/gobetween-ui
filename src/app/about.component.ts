@@ -2,12 +2,12 @@ import {Component} from "@angular/core";
 import {ApiService} from "./services/api.service";
 
 @Component({
-    selector: 'page-info',
-    templateUrl: 'templates/info.component.html'
+    selector: 'page-about',
+    templateUrl: 'templates/about.component.html'
 })
 
 
-export class InfoComponent {
+export class AboutComponent {
 
     constructor(
         private api: ApiService
