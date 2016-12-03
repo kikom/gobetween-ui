@@ -1,10 +1,10 @@
-const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const commonConfig = require('./webpack.common.js');
-const helpers = require('./helpers');
+const webpack = require('webpack'),
+webpackMerge = require('webpack-merge'),
+ExtractTextPlugin = require('extract-text-webpack-plugin'),
+commonConfig = require('./webpack.common.js'),
+helpers = require('./helpers'),
 
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
+ENV = process.env.NODE_ENV = process.env.ENV = 'production';
 
 module.exports = webpackMerge(commonConfig, {
     devtool: 'source-map',

@@ -1,7 +1,7 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const helpers = require('./helpers');
+const webpack = require('webpack'),
+HtmlWebpackPlugin = require('html-webpack-plugin'),
+ExtractTextPlugin = require('extract-text-webpack-plugin'),
+helpers = require('./helpers');
 
 module.exports = {
     entry: {
@@ -48,12 +48,12 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             template: 'src/index.html'
-        })
+        }),
 
-        /*new webpack.ProvidePlugin({
+        new webpack.ProvidePlugin({
             jQuery: 'jquery',
             $: 'jquery',
             jquery: 'jquery'
-        })*/
+        })
     ]
 };

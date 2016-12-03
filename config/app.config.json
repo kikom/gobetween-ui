@@ -1,3 +1,4 @@
 {
-  "gobetweenApiUrl": "http://localhost:8888"
+  "gobetweenApiUrl": "http://localhost:8888",
+  "refreshIntervalMs": 10000
 }

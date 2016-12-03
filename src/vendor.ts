@@ -3,6 +3,6 @@ import 'rxjs'
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-/*import 'jquery'*/
-/*import 'bootstrap/dist/js/bootstrap.min.js';*/
+import 'jquery'
+import 'bootstrap/dist/js/bootstrap.min.js';
 

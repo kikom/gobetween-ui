@@ -1,6 +1,9 @@
 import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
-import {Observable} from "rxjs";
+import {Observable} from "rxjs/Rx";
+import "rxjs/add/observable/interval";
+import * as _ from "lodash";
+import async = require("async");
 
 
 @Injectable()
@@ -10,7 +13,7 @@ export class ApiService {
         private http: Http
     ) {}
 
-    private interval: number = 10 * 1000;
+    private interval: number = process.env.config.refreshIntervalMs;
 
     private apiUrl: string = process.env.config.gobetweenApiUrl;
 
@@ -36,26 +39,37 @@ export class ApiService {
     /**
      * Get info about all servers
      */
-    getServers(): Observable<any> {
-        return this.http.get(this.apiUrl + '/servers')
-            .map(r => r.json())
-            .catch(err => this.handleError(err))
+    getServers(): Observable<{[name:string]: Server}> {
+        return Observable
+            .timer(0, this.interval)
+            .flatMap(() => this.http.get(this.apiUrl + '/servers'))
+            .map(r => <{[name:string]: Server}> r.json())
+            .do(servers => {
+                _.forIn(servers, (v, k) => {
+                    this.getServerStats(k).then(stats => {
+                        v.stats = stats;
+                    });
+                });
+            })
+            .catch(err => this.handleError(err));
     }
 
     /**
      * Get info about specific server
      */
-    getServerByName(name: string): Observable<any> {
+    getServerByName(name: string): Observable<Server> {
         return this.http.get(this.apiUrl + '/servers/' + name)
-            .map(r => r.json())
+            .map(r => <Server> r.json())
             .catch(err => this.handleError(err))
     }
 
     /**
      * Get stats of specific server
      */
-    getServerStats(name: string): Observable<any> {
+    getServerStats(name: string): Promise<ServerStats> {
         return this.http.get(this.apiUrl + '/servers/' + name + '/stats')
+            .map(r => <ServerStats> r.json())
+            .toPromise()
     }
 
 
