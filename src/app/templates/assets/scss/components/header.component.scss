@@ -58,6 +58,24 @@
         }
       }
   }
+
+  .btn-mobile-menu{
+    display: none;
+    width: 30px;
+    cursor: pointer;
+
+    >i{
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+
+      &:not(:first-child){
+        margin-top: 6px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 980px){
@@ -81,5 +99,14 @@
       .navigation{
         display: none;
       }
+
+      .header-content {
+        padding: 12px 0;
+      }
+
+      .btn-mobile-menu{
+        display: inline-block;
+      }
   }
+
 }

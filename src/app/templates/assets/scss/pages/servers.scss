@@ -1,0 +1,54 @@
+
+.page-servers{
+
+
+  .sort-block{
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 60px;
+    padding-bottom: 30px;
+    font-family: source_sans_proregular;
+    text-align: left;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color: #0163b4;
+    cursor: pointer;
+
+    .sort-label{
+      font-size: 14px;
+    }
+
+    .field-name{
+      font-size: 19px;
+    }
+
+    .sort-label, .field-name{
+      display: inline-block;
+    }
+  }
+}
+
+
+@media screen and (max-width: 980px){
+
+  .page-servers{
+    .sort-block{
+      margin-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px){
+
+  .page-servers{
+    .sort-block{
+      text-align: center;
+      margin-top: 9px;
+      padding-bottom: 9px;
+    }
+  }
+
+}

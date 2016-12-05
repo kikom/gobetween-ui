@@ -2,8 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
+import { MenuPopupService} from "../services/menu-popup.service";
+
 import { TableComponent } from "./table.component";
 import { HeaderComponent } from "./header.component";
+import { MenuPopupComponent } from "./menu-popup.component";
 
 
 @NgModule({
@@ -13,11 +16,16 @@ import { HeaderComponent } from "./header.component";
     ],
     declarations: [
         TableComponent,
-        HeaderComponent
+        HeaderComponent,
+        MenuPopupComponent
+    ],
+    providers: [
+        MenuPopupService
     ],
     exports: [
         TableComponent,
-        HeaderComponent
+        HeaderComponent,
+        MenuPopupComponent
     ]
 })
 
