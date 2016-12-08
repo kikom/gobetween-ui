@@ -1,9 +1,9 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {ServersComponent} from "./servers.component";
-import {InfoComponent} from "./info.component";
-import {AboutComponent} from "./about.component";
+import {ServersComponent} from "./pages/servers.component";
+import {InfoComponent} from "./pages/info.component";
+import {AboutComponent} from "./pages/about.component";
 
 const appRoutes: Routes = [
     {

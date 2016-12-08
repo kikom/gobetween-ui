@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from "../common.module";
 
 import { MenuPopupService} from "../services/menu-popup.service";
 
-import { TableComponent } from "./table.component";
+import { ServersTableComponent } from "./servers-table.component";
 import { HeaderComponent } from "./header.component";
 import { MenuPopupComponent } from "./menu-popup.component";
 
@@ -12,10 +13,11 @@ import { MenuPopupComponent } from "./menu-popup.component";
 @NgModule({
     imports: [
         BrowserModule,
-        RouterModule
+        RouterModule,
+        CommonModule
     ],
     declarations: [
-        TableComponent,
+        ServersTableComponent,
         HeaderComponent,
         MenuPopupComponent
     ],
@@ -23,7 +25,7 @@ import { MenuPopupComponent } from "./menu-popup.component";
         MenuPopupService
     ],
     exports: [
-        TableComponent,
+        ServersTableComponent,
         HeaderComponent,
         MenuPopupComponent
     ]

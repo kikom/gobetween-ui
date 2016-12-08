@@ -1,6 +1,6 @@
 
-<div class="ui-table">
-    <div class="table-line" *ngFor="let item of rows; let i = index;">
+<div class="ui-servers-table">
+    <div class="table-line" *ngFor="let row of rows| mapToIterable | sort:sortBy:sortOrder">
         <div class="content-wrapper">
             <div class="table-content">
                 <div class="table-row">

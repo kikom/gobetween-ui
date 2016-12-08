@@ -1,15 +1,16 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule}  from "@angular/platform-browser";
 import {AppComponent} from "./app.component";
-import {InfoComponent} from "./info.component";
-import {AboutComponent} from "./about.component";
 import {ApiService} from "./services/api.service";
 import {HttpModule} from "@angular/http";
 import {routing} from "./app.routing";
-import {ServersComponent} from "./servers.component";
-import {MapToIterablePipe} from "./pipes/map-to-iterable.pipe";
-import {SortPipe} from "./pipes/sort.pipe";
 
+import {InfoComponent} from "./pages/info.component";
+import {AboutComponent} from "./pages/about.component";
+import {ServersComponent} from "./pages/servers.component";
+
+
+import {CommonModule} from "./common.module";
 import {ComponentsModule} from "./components/components.module";
 
 @NgModule({
@@ -17,7 +18,8 @@ import {ComponentsModule} from "./components/components.module";
         BrowserModule,
         HttpModule,
         routing,
-        ComponentsModule
+        ComponentsModule,
+        CommonModule
     ],
     providers: [ApiService],
     declarations: [
@@ -25,8 +27,6 @@ import {ComponentsModule} from "./components/components.module";
         InfoComponent,
         AboutComponent,
         ServersComponent,
-        MapToIterablePipe,
-        SortPipe
     ],
     bootstrap: [AppComponent]
 })
