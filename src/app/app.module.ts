@@ -11,7 +11,7 @@ import {ServersComponent} from "./pages/servers.component";
 
 
 import {CommonModule} from "./common.module";
-import {ComponentsModule} from "./components/components.module";
+import {ComponentsModule} from "./components.module";
 
 @NgModule({
     imports: [

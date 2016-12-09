@@ -1,5 +1,6 @@
-import {Component} from "@angular/core";
-import {ApiService} from "../services/api.service";
+import { Component } from "@angular/core";
+import { ApiService } from "../services/api.service";
+import { SortPopupService } from "../services/sort-popup.service";
 
 @Component({
     selector: 'page-servers',
@@ -9,13 +10,14 @@ import {ApiService} from "../services/api.service";
 export class ServersComponent {
 
     constructor(
-        private api: ApiService
+        private api: ApiService,
+        private sortPopup: SortPopupService
     ) {}
 
     servers: { [key:string]: Server} = {};
 
-    sortBy: string = 'total';
-    sortOrder: string = '+';
+    sortBy: string = 'name';
+    sortOrder: string = '-';
 
 
     ngOnInit() {
@@ -23,6 +25,10 @@ export class ServersComponent {
             console.log(servers);
             this.servers = servers;
         })
+    }
+
+    onClickSort(){
+        this.sortPopup.open();
     }
 
 }

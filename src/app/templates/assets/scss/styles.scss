@@ -1,10 +1,13 @@
 @import "./base/clear.scss";
 @import "./base/common.scss";
+@import "./base/popup.scss";
+@import "./base/buttons.scss";
 @import "fonts";
 
 @import "components/header.component";
 @import "components/servers-table.component";
 @import "components/menu-popup.component";
+@import "components/sort-popup.component";
 
 @import "pages/servers";
 @import "pages/info";

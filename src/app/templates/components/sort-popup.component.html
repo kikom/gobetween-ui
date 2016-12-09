@@ -1,0 +1,27 @@
+<div class="ui-popup-wrapper ui-sort-popup {{opened? 'show': ''}}">
+    <div class="background" (click)="closePopup()"></div>
+    <div class="popup">
+        <div class="popup-content">
+            <div class="title">Sorted by</div>
+            <div class="radio-buttons">
+                <div class="radio active"><i></i> <span>Name (Alphabetical)</span> </div>
+                <div class="radio"><i></i> <span>Bind</span></div>
+                <div class="radio"><i></i> <span>Rx</span></div>
+                <div class="radio"><i></i> <span>Tx</span></div>
+                <div class="radio"><i></i> <span>Tx (RX + TX)</span></div>
+            </div>
+            <div class="ui-dropdown opened">
+                <div class="selected">Low to hight</div>
+                <div class="list">
+                    <span class="item">Hight to low</span>
+                </div>
+                <span class="arrow"></span>
+            </div>
+            <div class="button-container space-between">
+                <div class="button blue">Apply</div>
+                <div class="button" (click)="closePopup()" >Discart</div>
+            </div>
+        </div>
+        <div class="btn-close" (click)="closePopup()"></div>
+    </div>
+</div>

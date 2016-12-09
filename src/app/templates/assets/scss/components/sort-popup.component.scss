@@ -1,0 +1,144 @@
+
+.ui-sort-popup{
+
+  .popup{
+      padding-top: 30px;
+      padding-bottom: 60px;
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+
+  .popup-content{
+      display: block;
+      width: 260px;
+      margin: 0 auto;
+  }
+
+  .title{
+    font-size: 19px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    color: #0163b4;
+    font-family: source_sans_proregular;
+
+    margin-bottom: 60px;
+  }
+
+  .radio-buttons{
+    display: block;
+    color: #585858;
+
+    font-family: source_sans_proregular;
+    font-size: 19px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+
+    .radio{
+      display: block;
+      text-align: left;
+      cursor: pointer;
+
+      &:not(:last-child){
+        margin-bottom: 13px;
+      }
+
+      &.active{
+        >i:before{
+          content: " ";
+        }
+      }
+
+      >*{
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      >i{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+
+        border: solid 1px #585858;
+        border-radius: 50%;
+
+        position: relative;
+
+      }
+
+      >i:before{
+        display: block;
+        width: 14px;
+        height: 14px;
+        background: #585858;
+        border-radius: 50%;
+        left: 3px;
+        top: 3px;
+        position: relative;
+      }
+
+      >span{
+        margin-left: 13px;
+      }
+    }
+
+  }
+
+  .ui-dropdown{
+
+    display: block;
+    position: relative;
+
+    font-family: source_sans_prolight;
+    font-size: 19px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color: #585858;
+
+    border-radius: 4px;
+    background-color: #fbfbfb;
+    border: solid 1px #cdcdcd;
+
+    margin-top: 30px;
+
+    .selected, .item{
+      display: block;
+      box-sizing: border-box;
+      padding: 8px 15px;
+
+      cursor: pointer;
+    }
+
+    .list{
+      background: #efefef;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .arrow{
+      display: block;
+      width: 11px;
+      height: 21px;
+      background: url("../images/dropdown_arrow.svg") no-repeat center;
+      transform: rotate(-270deg);
+
+      position: absolute;
+      right: 14px;
+      top: 12px;
+    }
+
+    &.opened{
+      .list{
+        height: auto;
+      }
+    }
+  }
+
+  .button-container{
+    margin-top: 30px;
+  }
+
+}

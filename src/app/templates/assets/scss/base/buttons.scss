@@ -1,0 +1,38 @@
+
+.button{
+  display: inline-block;
+  min-width: 115px;
+  box-sizing: border-box;
+  padding: 12px;
+  cursor: pointer;
+
+
+  font-family: source_sans_probold;
+  font-size: 19px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: center;
+
+  background-color: #fbfbfb;
+  border: solid 1px #bfbfbf;
+  border-radius: 4px;
+  color: #585858;
+
+
+  &.blue{
+    background-color: #0e72bd;
+    color: white;
+  }
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+
+  &.space-between{
+    justify-content: space-between;
+  }
+}
