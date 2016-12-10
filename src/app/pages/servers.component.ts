@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { ApiService } from "../services/api.service";
-import { SortPopupService } from "../services/sort-popup.service";
+import { UIService } from "../services/ui.service";
 import { SortServerService } from "../services/sort-servers.service";
 
 @Component({
@@ -12,7 +12,7 @@ export class ServersComponent {
 
     constructor(
         private api: ApiService,
-        private sortPopup: SortPopupService,
+        private ui: UIService,
         private sorting: SortServerService
     ) {}
 
@@ -36,10 +36,15 @@ export class ServersComponent {
         this.sorting.subscribe((sort: ServersSorting)=>{
             this.serverSorting = sort;
         });
+
+        console.log(this.sorting);
     }
 
     onClickSort(){
-        this.sortPopup.open();
+        this.ui.next({
+            name: UIService.POPUP_SORT_OPEN,
+            data: {opened : true}
+        });
     }
 
 }

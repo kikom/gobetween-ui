@@ -1,4 +1,4 @@
-<div class="ui-popup-wrapper ui-sort-popup {{opened? 'show': ''}}">
+<div [ngClass]="{'ui-popup-wrapper':true, 'ui-sort-popup': true, 'show': opened }">
     <div class="background" (click)="closePopup()"></div>
     <div class="popup">
         <div class="popup-content">

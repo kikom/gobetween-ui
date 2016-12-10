@@ -3,8 +3,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from "./common.module";
 
-import { MenuPopupService} from "./services/menu-popup.service";
-import { SortPopupService } from "./services/sort-popup.service";
+import { UIService } from "./services/ui.service";
 import { SortServerService } from "./services/sort-servers.service";
 
 import { ServersTableComponent } from "./components/servers-table.component";
@@ -30,8 +29,7 @@ import { RadioButtonsComponent } from './components/radio-buttons.component';
         RadioButtonsComponent
     ],
     providers: [
-        MenuPopupService,
-        SortPopupService,
+        UIService,
         SortServerService
     ],
     exports: [

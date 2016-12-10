@@ -1,7 +1,7 @@
 <div class="ui-drop-down {{opened? 'opened': ''}}">
     <div class="selected" (click)="onSelectedOptionClick($event)">{{selectedOption.label}}</div>
     <div class="list">
-        <span class="item {{ currentItem == item? 'hide': ''}}" *ngFor="let item of arrOptions; let i = index" (click)="onOptionClick(i)">{{item.label}}</span>
+        <span class="item {{ selectedOption == item? 'hide': ''}}" *ngFor="let item of arrOptions; let i = index" (click)="onOptionClick(i)">{{item.label}}</span>
     </div>
     <span class="arrow"></span>
 </div>

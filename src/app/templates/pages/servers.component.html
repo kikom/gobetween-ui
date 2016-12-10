@@ -2,12 +2,13 @@
 
     <div class="content-wrapper">
 
-        <div class="sort-block" (click)="onClickSort($event)">
+        <div class="sort-block" *ngIf="serverSorting" (click)="onClickSort($event)">
             <div class="sort-label">Sorted by:</div><br/>
             <div class="field-name">{{serverSorting.sortBy.label}}</div>
         </div>
 
     </div>
-
-    <ui-servers-table [rows]="servers" [sortBy]="serverSorting.sortBy.value" [sortOrder]="serverSorting.sortOrder"></ui-servers-table>
+    <div *ngIf="serverSorting">
+        <ui-servers-table [rows]="servers" [sortBy]="serverSorting.sortBy.value" [sortOrder]="serverSorting.sortOrder"></ui-servers-table>
+    </div>
 </div>

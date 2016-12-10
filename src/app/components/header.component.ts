@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MenuPopupService } from "../services/menu-popup.service"
+import { UIService } from "../services/ui.service"
 
 @Component({
     selector: 'ui-header',
@@ -9,7 +9,7 @@ import { MenuPopupService } from "../services/menu-popup.service"
 export class HeaderComponent implements OnInit{
 
     constructor(
-        private menuService: MenuPopupService
+        private ui: UIService
     ) {}
 
     ngOnInit(){
@@ -17,7 +17,10 @@ export class HeaderComponent implements OnInit{
     }
 
     mobileMenuOpen(){
-        this.menuService.open();
+        this.ui.next({
+            name: UIService.MOBILE_MENU_OPEN,
+            data: {opened: true}
+        })
     }
 
 }

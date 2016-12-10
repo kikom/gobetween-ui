@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuPopupService } from "../services/menu-popup.service"
+import { UIService } from "../services/ui.service"
 
 @Component({
     selector: 'ui-popup-menu',
@@ -10,19 +10,27 @@ export class MenuPopupComponent implements OnInit{
     private opened: boolean = false;
 
     constructor(
-        private menuService: MenuPopupService
+        private ui: UIService
     ) {}
 
     ngOnInit(){
-        this.menuService.subscribe(this.menuStateSubscribe.bind(this))
+
+        this.ui.subscribe(this.subscribeOnUiEvent.bind(this))
     }
 
     closeMenu(){
-        this.menuService.close();
+
+        this.ui.next({
+            name: UIService.MOBILE_MENU_CLOSE,
+            data: {open: false}
+        });
     }
 
-    menuStateSubscribe(value: boolean){
-        this.opened = value;
+    subscribeOnUiEvent(evt: EventUI){
+
+        if(evt.name == UIService.MOBILE_MENU_OPEN || evt.name == UIService.MOBILE_MENU_CLOSE){
+            this.opened = evt.data.opened;
+        }
     }
 
 }
