@@ -19,7 +19,10 @@ export class ServersComponent {
     servers: { [key:string]: Server} = {};
 
     serverSorting: ServersSorting = {
-        sortBy: "name",
+        sortBy: {
+            value: "name",
+            label: "Name (Alphabetical)"
+        },
         sortOrder: "+"
     };
 

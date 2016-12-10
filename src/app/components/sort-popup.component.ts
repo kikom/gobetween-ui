@@ -34,7 +34,7 @@ export class SortPopupComponent implements OnInit{
     applySorting(){
 
         this.sorting.next({
-            sortBy: this.selectedField.value,
+            sortBy: this.selectedField,
             sortOrder: this.selectedOrder.value
         });
 

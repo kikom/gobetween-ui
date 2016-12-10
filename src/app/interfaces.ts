@@ -60,6 +60,6 @@ interface ItemOption{
 }
 
 interface ServersSorting{
-    sortBy: string,
+    sortBy?: ItemOption,
     sortOrder: string;
 }
