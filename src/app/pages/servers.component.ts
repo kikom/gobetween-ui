@@ -33,11 +33,9 @@ export class ServersComponent {
             this.servers = servers;
         });
 
-        this.sorting.subscribe((sort: ServersSorting)=>{
+        this.sorting.subscribe((sort: ServersSorting) => {
             this.serverSorting = sort;
         });
-
-        console.log(this.sorting);
     }
 
     onClickSort(){
