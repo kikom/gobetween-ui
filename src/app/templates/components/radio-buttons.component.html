@@ -1,0 +1,5 @@
+<div class="ui-radio-buttons">
+    <div class="radio {{ selectedOption == item? 'active':''}}"  *ngFor="let item of arrOptions; let i = index;" (click)="selectOption(i, $event)">
+        <i></i><span>{{item.label}}</span>
+    </div>
+</div>

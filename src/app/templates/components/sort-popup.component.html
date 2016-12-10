@@ -3,25 +3,15 @@
     <div class="popup">
         <div class="popup-content">
             <div class="title">Sorted by</div>
-            <div class="radio-buttons">
-                <div class="radio active"><i></i> <span>Name (Alphabetical)</span> </div>
-                <div class="radio"><i></i> <span>Bind</span></div>
-                <div class="radio"><i></i> <span>Rx</span></div>
-                <div class="radio"><i></i> <span>Tx</span></div>
-                <div class="radio"><i></i> <span>Tx (RX + TX)</span></div>
-            </div>
-            <div class="ui-dropdown opened">
-                <div class="selected">Low to hight</div>
-                <div class="list">
-                    <span class="item">Hight to low</span>
-                </div>
-                <span class="arrow"></span>
-            </div>
+
+            <ui-radio-buttons (onChangeSelected)="selectedField = $event"></ui-radio-buttons>
+            <ui-drop-down (onChangeSelected)="selectedOrder = $event"></ui-drop-down>
+
             <div class="button-container space-between">
-                <div class="button blue">Apply</div>
-                <div class="button" (click)="closePopup()" >Discart</div>
+                <div class="button blue" (click)="applySorting($event)">Apply</div>
+                <div class="button" (click)="closePopup($event)" >Discart</div>
             </div>
         </div>
-        <div class="btn-close" (click)="closePopup()"></div>
+        <div class="btn-close" (click)="closePopup($event)"></div>
     </div>
 </div>

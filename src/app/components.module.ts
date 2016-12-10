@@ -5,11 +5,14 @@ import { CommonModule } from "./common.module";
 
 import { MenuPopupService} from "./services/menu-popup.service";
 import { SortPopupService } from "./services/sort-popup.service";
+import { SortServerService } from "./services/sort-servers.service";
 
 import { ServersTableComponent } from "./components/servers-table.component";
 import { HeaderComponent } from "./components/header.component";
 import { MenuPopupComponent } from "./components/menu-popup.component";
 import { SortPopupComponent } from "./components/sort-popup.component";
+import { DropDownComponent } from './components/drop-down.component';
+import { RadioButtonsComponent } from './components/radio-buttons.component';
 
 
 @NgModule({
@@ -22,17 +25,22 @@ import { SortPopupComponent } from "./components/sort-popup.component";
         ServersTableComponent,
         HeaderComponent,
         MenuPopupComponent,
-        SortPopupComponent
+        SortPopupComponent,
+        DropDownComponent,
+        RadioButtonsComponent
     ],
     providers: [
         MenuPopupService,
-        SortPopupService
+        SortPopupService,
+        SortServerService
     ],
     exports: [
         ServersTableComponent,
         HeaderComponent,
         MenuPopupComponent,
-        SortPopupComponent
+        SortPopupComponent,
+        DropDownComponent,
+        RadioButtonsComponent
     ]
 })
 

@@ -53,3 +53,13 @@ interface Server {
     protocol: string,
     stats?: ServerStats
 }
+
+interface ItemOption{
+    value: string,
+    label: string;
+}
+
+interface ServersSorting{
+    sortBy: string,
+    sortOrder: string;
+}
