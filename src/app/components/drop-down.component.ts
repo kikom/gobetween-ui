@@ -21,20 +21,7 @@ export class DropDownComponent implements OnInit{
     ) {}
 
     ngOnInit(){
-
-        this.arrOptions = [
-            {
-                value: "+",
-                label: "Low to Hight"
-            },
-            {
-                value: "-",
-                label: "Hight to low"
-            },
-        ];
-
         this.onOptionClick(0);
-
     }
 
     onOptionClick(index: number){

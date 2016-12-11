@@ -18,16 +18,15 @@ export class ServersComponent {
 
     servers: { [key:string]: Server} = {};
 
-    serverSorting: ServersSorting = {
-        sortBy: {
-            value: "name",
-            label: "Name (Alphabetical)"
-        },
-        sortOrder: "+"
-    };
-
+    serverSorting: ServersSorting;
 
     ngOnInit() {
+
+        this.serverSorting = {
+            sortBy: this.sorting.arrFiends[0],
+            sortOrder: this.sorting.arrOrders[0].value
+        };
+
         this.api.getServers().subscribe((servers) => {
             console.log(servers);
             this.servers = servers;
