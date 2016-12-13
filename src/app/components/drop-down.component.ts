@@ -1,5 +1,6 @@
 import { Component, Input, Output,EventEmitter, OnInit } from '@angular/core';
 
+
 @Component({
     selector: 'ui-drop-down',
     templateUrl: '../templates/components/drop-down.component.html',
@@ -32,5 +33,9 @@ export class DropDownComponent implements OnInit{
 
     onSelectedOptionClick(){
         this.opened = !this.opened;
+    }
+
+    onBlur(){
+        this.opened = false;
     }
 }

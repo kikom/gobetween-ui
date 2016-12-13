@@ -12,12 +12,36 @@
                     <a class="item" routerLink="/servers" routerLinkActive="active">Dump config</a>
                     <a class="item" routerLink="/about" routerLinkActive="active">About</a>
                 </div>
-                <div class="btn-mobile-menu" (click)="mobileMenuOpen($event)">
+                <div class="btn-mobile-menu" (click)="openMenu($event)">
                     <i></i>
                     <i></i>
                     <i></i>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="popup-menu {{opened?'show': null}}">
+        <div class="popup-content">
+            <ul class="nav-list">
+                <li class="item">
+                    <a routerLink="/servers" routerLinkActive="active" (click)="closeMenu($event)" >
+                        Add new server
+                    </a>
+                </li>
+                <li class="item">
+                    <a routerLink="/info" routerLinkActive="active" (click)="closeMenu($event)">
+                        Dump config
+                    </a>
+                </li>
+                <li class="item">
+                    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu($event)">
+                        About
+                    </a>
+                </li>
+            </ul>
+            <a class="btn-close" (click)="closeMenu($event)">
+                <img src="../assets/images/close-menu.svg">
+            </a>
         </div>
     </div>
 </header>

@@ -3,6 +3,7 @@
 .ui-header{
   background-color: #0163b4;
   font-family: varela_roundregular;
+  z-index: 2;
 
   .header-content{
     display: flex;
@@ -77,6 +78,86 @@
       }
     }
   }
+
+
+  .popup-menu{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(to bottom, #0163b4, #01305a), linear-gradient(#1f5b8c, #1f5b8c);
+    position: fixed;
+    left: 0;
+    top: 0;
+    text-align: center;
+
+    pointer-events: none;
+    transform: scale3d(0.6, 0.6, 1);
+    opacity: 0;
+    transition: all 250ms;
+
+    &.show{
+      opacity: 1;
+      pointer-events: all;
+      transform: scale3d(1, 1, 1);
+    }
+
+    .popup-content{
+      display: inline-block;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    &:after{
+      display: inline-block;
+      content: " ";
+      vertical-align: middle;
+      height: 100%;
+    }
+
+    .nav-list{
+      display: block;
+      margin: 0;
+      padding: 0;
+
+      list-style-type: none;
+      color: white;
+      font-family: varela_roundregular;
+      font-size: 30px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.03;
+      text-align: center;
+
+      .item{
+
+        &:not(:first-child){
+          margin-top: 40px;
+        }
+      }
+
+      a{
+        color: inherit;
+      }
+
+    }
+
+
+    .btn-close{
+      display: block;
+      width: 25px;
+      height: auto;
+      cursor: pointer;
+
+      position: absolute;
+      right: 25px;
+      top: 25px;
+
+    }
+  }
+
+
 }
 
 @media screen and (max-width: 980px){
@@ -97,17 +178,22 @@
 @media screen and (max-width: 480px){
 
   .ui-header{
-      .navigation{
-        display: none;
-      }
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
 
-      .header-content {
-        padding: 12px 0;
-      }
+    .navigation{
+      display: none;
+    }
 
-      .btn-mobile-menu{
-        display: inline-block;
-      }
+    .header-content {
+      padding: 12px 0;
+    }
+
+    .btn-mobile-menu{
+      display: inline-block;
+    }
   }
 
 }

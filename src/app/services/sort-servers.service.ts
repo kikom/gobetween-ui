@@ -39,17 +39,35 @@ export class SortServerService{
         }
     ];
 
-    private state: Subject<ServersSorting>;
+    private stateSort: Subject<ServersSorting>;
+    private statePopup: Subject<StatePopup>;
 
     constructor() {
-        this.state = new Subject<ServersSorting>();
+        this.stateSort = new Subject<ServersSorting>();
+        this.statePopup = new Subject<StatePopup>();
     }
 
     subscribe(next: any = null, error: any= null, complete: any = null){
-        this.state.subscribe(next,error,complete);
+        this.stateSort.subscribe(next,error,complete);
     }
 
     next(obj: ServersSorting){
-        this.state.next(obj);
+        this.stateSort.next(obj);
+    }
+
+    subscribePopupUpdate(next: any = null, error: any= null, complete: any = null){
+        this.statePopup.subscribe(next,error,complete);
+    }
+
+    openPopup(){
+        this.statePopup.next({
+            opened: true
+        });
+    }
+
+    closePopup(){
+        this.statePopup.next({
+            opened: false
+        });
     }
 }

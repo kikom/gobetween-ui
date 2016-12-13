@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UIService } from "../services/ui.service";
 import { SortServerService } from "../services/sort-servers.service";
 
 @Component({
@@ -14,27 +13,19 @@ export class SortPopupComponent implements OnInit{
     private selectedField: ItemOption;
 
     constructor(
-        private ui: UIService,
         private sorting: SortServerService
     ) {}
 
     ngOnInit(){
-        this.ui.subscribe(this.uiServiceSubscribe.bind(this));
+        this.sorting.subscribePopupUpdate(this.onSubscribePopupUpdate.bind(this));
     }
 
-
-    uiServiceSubscribe(evt: EventUI){
-
-        if(evt.name == UIService.POPUP_SORT_OPEN || evt.name == UIService.POPUP_SORT_CLOSE){
-            this.opened = evt.data.opened;
-        }
+    onSubscribePopupUpdate(obj: StatePopup){
+        this.opened = obj.opened;
     }
 
     closePopup(){
-        this.ui.next({
-           name: UIService.POPUP_SORT_CLOSE,
-           data: {opened: false}
-        });
+        this.sorting.closePopup();
     }
 
     applySorting(){
