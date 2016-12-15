@@ -1,38 +1,45 @@
 
 
-.ui-servers-table{
+.ui-backends-table{
 
   .table-column{
 
-    &.column-name{
-      width: 20%;
-    }
     &.column-bind{
-      width: 20%;
-    }
-    &.column-protocol{
-      width: 5%;
-    }
-    &.column-discovery{
-      width: 13.33%;
-    }
-    &.column-connection{
-      width: 13.33%;
-    }
-    &.column-rx{
-      width: 13.33%;
-    }
-    &.column-tx{
-      width: 20%;
+      width: 40%;
     }
 
+    &.column-discovery{
+      width: 10%;
+    }
+
+    &.column-connection{
+      width: 10%;
+    }
+    &.column-rx{
+      width: 10%;
+    }
+    &.column-tx{
+      width: 30%;
+    }
+  }
+
+  .host{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #333;
+    border-radius: 6px;
+
+    &.online{
+      background-color: #3ac333;
+    }
   }
 
 }
 
 @media screen and (max-width: 980px){
 
-  .ui-servers-table{
+  .ui-backends-table{
 
     .column-content{
       font-size: 15px;
@@ -48,13 +55,18 @@
         width: 27%;
       }
     }
+
+    .host{
+      width: 9px;
+      height: 9px;
+    }
   }
 }
 
 
 @media screen and (max-width: 480px){
 
-  .ui-servers-table{
+  .ui-backends-table{
 
     .content-wrapper{
       padding: 0 0;

@@ -1,0 +1,127 @@
+
+
+.ui-table{
+  display: block;
+  font-family: varela_roundregular;
+
+  .table-line{
+    display: block;
+    background-color: #fafafa;
+    border-top: solid 1px #bfbfbf;
+    box-sizing: border-box;
+
+    &:nth-child(odd){
+      background-color: #efefef;
+    }
+    &:last-child{
+      border-bottom: solid 1px #bfbfbf;
+    }
+  }
+
+  .table-row{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .table-column{
+    display: block;
+    flex-grow: 1;
+    box-sizing: border-box;
+    position: relative;
+
+    &:before{
+      display: block;
+      content: "";
+      width: 2px;
+      height: 36px;
+      background: #d9d9d9;
+      position: absolute;
+      top: 12px;
+      left: 0;
+      right: auto;
+    }
+
+    &:first-child, &.without-border{
+      &:before{
+        display: none;
+      }
+    }
+  }
+
+  .column-content{
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 19px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    color: #585858;
+
+
+    &.h-left{
+      justify-content: flex-start;
+    }
+    &.h-center{
+      justify-content: center;
+    }
+    &.h-right{
+      justify-content: flex-end;
+    }
+    &.h-wrap{
+      justify-content: space-around;
+    }
+
+    &.v-top{
+      align-items: flex-start;
+    }
+    &.v-middle{
+      align-items: center;
+    }
+    &.v-bottom{
+      align-items: flex-end;
+    }
+  }
+
+  .table-content{
+    display: block;
+    position: relative;
+  }
+
+  .measure{
+    font-family: source_sans_prolight;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color: #585858;
+  }
+
+  .server-name{
+    color: #0163b4;
+  }
+
+  .btn-detail{
+    cursor: pointer;
+    position: absolute;
+    top: 18px;
+    right: 10px;
+
+    >.ui-image{
+      position: relative;
+      left: 0;
+      transition: left 250ms;
+    }
+
+    &:hover{
+
+      >.ui-image{
+        left: -10px;
+      }
+    }
+  }
+}

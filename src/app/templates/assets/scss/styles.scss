@@ -2,13 +2,16 @@
 @import "./base/common.scss";
 @import "./base/popup.scss";
 @import "./base/buttons.scss";
+@import "./base/table.scss";
 @import "fonts";
 
 @import "components/header.component";
 @import "components/servers-table.component";
+@import "components/backends-table.component";
 @import "components/sort-popup.component";
 @import "components/drop-down.component";
 @import "components/radio-buttons.component";
 
 @import "pages/servers";
+@import "pages/server-detail";
 @import "pages/info";

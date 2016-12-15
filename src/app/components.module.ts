@@ -6,6 +6,7 @@ import { CommonModule } from "./common.module";
 import { SortServerService } from "./services/sort-servers.service";
 
 import { ServersTableComponent } from "./components/servers-table.component";
+import { BackendsTableComponent } from "./components/backends-table.component";
 import { HeaderComponent } from "./components/header.component";
 import { SortPopupComponent } from "./components/sort-popup.component";
 import { DropDownComponent } from './components/drop-down.component';
@@ -20,6 +21,7 @@ import { RadioButtonsComponent } from './components/radio-buttons.component';
     ],
     declarations: [
         ServersTableComponent,
+        BackendsTableComponent,
         HeaderComponent,
         SortPopupComponent,
         DropDownComponent,
@@ -33,7 +35,8 @@ import { RadioButtonsComponent } from './components/radio-buttons.component';
         HeaderComponent,
         SortPopupComponent,
         DropDownComponent,
-        RadioButtonsComponent
+        RadioButtonsComponent,
+        BackendsTableComponent
     ]
 })
 

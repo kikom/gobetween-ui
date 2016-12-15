@@ -8,6 +8,7 @@ import {routing} from "./app.routing";
 import {InfoComponent} from "./pages/info.component";
 import {AboutComponent} from "./pages/about.component";
 import {ServersComponent} from "./pages/servers.component";
+import {ServerDetailComponent} from "./pages/server-detail.component";
 
 
 import {CommonModule} from "./common.module";
@@ -27,6 +28,7 @@ import {ComponentsModule} from "./components.module";
         InfoComponent,
         AboutComponent,
         ServersComponent,
+        ServerDetailComponent
     ],
     bootstrap: [AppComponent]
 })
