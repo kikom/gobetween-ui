@@ -1,5 +1,6 @@
 import {Pipe, PipeTransform} from "@angular/core";
 import _ = require("lodash");
+import {Server} from "../entities/server";
 
 @Pipe({
     name: 'sort',
@@ -12,9 +13,9 @@ export class SortPipe implements PipeTransform {
         let prop = {
             name: (obj: {key:string, value: Server}) => obj.key,
             bind: (obj: {key:string, value: Server}) => _.get(obj, 'value.bind'),
-            rx: (obj: {key:string, value: Server}) => _.get(obj, 'value.stats.rx_total'),
-            tx: (obj: {key:string, value: Server}) => _.get(obj, 'value.stats.tx_total'),
-            total: (obj: {key:string, value: Server}) => <number>_.get(obj, 'value.stats.rx_total') + <number>_.get(obj, 'value.stats.tx_total')
+            rx: (obj: {key:string, value: Server}) => _.get(obj, 'value.stats.rxTotal'),
+            tx: (obj: {key:string, value: Server}) => _.get(obj, 'value.stats.txTotal'),
+            total: (obj: {key:string, value: Server}) => <number>_.get(obj, 'value.stats.rxTotal') + <number>_.get(obj, 'value.stats.txTotal')
         };
 
         return array.sort((a, b) => {

@@ -12,6 +12,7 @@ import {ServersComponent} from "./pages/servers.component";
 
 import {CommonModule} from "./common.module";
 import {ComponentsModule} from "./components.module";
+import {ServersService} from "./services/servers.service";
 
 @NgModule({
     imports: [
@@ -21,7 +22,7 @@ import {ComponentsModule} from "./components.module";
         ComponentsModule,
         CommonModule
     ],
-    providers: [ApiService],
+    providers: [ApiService, ServersService],
     declarations: [
         AppComponent,
         InfoComponent,
