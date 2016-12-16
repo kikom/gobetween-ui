@@ -28,6 +28,7 @@ export class ServersComponent {
         this.serversService.subscribe(() => {
             console.log('refreshed!');
             //TODO refresh component when servers refreshed
+        });
 
         this.serverSorting = {
             sortBy: this.sorting.arrFiends[0],
@@ -39,13 +40,13 @@ export class ServersComponent {
         this.sorting.subscribe((sort: ServersSorting) => {
             this.serverSorting = sort;
         });
-    }
+    };
 
-    onClickSort(){
+    onClickSort() {
         this.ui.next({
             name: UIService.POPUP_SORT_OPEN,
             data: {opened : true}
         });
-    }
+    };
 
 }
