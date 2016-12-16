@@ -6,6 +6,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 })
 export class RadioButtonsComponent implements OnInit{
 
+    @Input()
     private arrOptions: Array<ItemOption>;
 
     @Output()
@@ -17,32 +18,7 @@ export class RadioButtonsComponent implements OnInit{
     ) {}
 
     ngOnInit(){
-
-        this.arrOptions = [
-            {
-                value: "name",
-                label: "Name (Alphabetical)"
-            },
-            {
-                value: "bind",
-                label: "Bind"
-            },
-            {
-                value: "rx",
-                label: "Rx"
-            },
-            {
-                value: "tx",
-                label: "Tx"
-            },
-            {
-                value: "total",
-                label: "Tx (RX + TX)"
-            }
-        ];
-
         this.selectOption(0);
-
     }
 
     selectOption(index: number){

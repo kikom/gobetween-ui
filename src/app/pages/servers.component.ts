@@ -19,14 +19,7 @@ export class ServersComponent {
 
     servers: { [key:string]: Server} = {};
 
-    serverSorting: ServersSorting = {
-        sortBy: {
-            value: "name",
-            label: "Name (Alphabetical)"
-        },
-        sortOrder: "+"
-    };
-
+    serverSorting: ServersSorting;
 
     ngOnInit() {
 
@@ -35,7 +28,11 @@ export class ServersComponent {
         this.serversService.subscribe(() => {
             console.log('refreshed!');
             //TODO refresh component when servers refreshed
-        });
+
+        this.serverSorting = {
+            sortBy: this.sorting.arrFiends[0],
+            sortOrder: this.sorting.arrOrders[0].value
+        };
 
         //console.log(this.servers);
 

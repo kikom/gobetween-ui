@@ -4,8 +4,8 @@
         <div class="popup-content">
             <div class="title">Sorted by</div>
 
-            <ui-radio-buttons (onChangeSelected)="selectedField = $event"></ui-radio-buttons>
-            <ui-drop-down (onChangeSelected)="selectedOrder = $event"></ui-drop-down>
+            <ui-radio-buttons [arrOptions]="sorting.arrFiends" (onChangeSelected)="selectedField = $event"></ui-radio-buttons>
+            <ui-drop-down [arrOptions]="sorting.arrOrders" (onChangeSelected)="selectedOrder = $event"></ui-drop-down>
 
             <div class="button-container space-between">
                 <div class="button blue" (click)="applySorting($event)">Apply</div>
