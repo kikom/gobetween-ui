@@ -11,19 +11,19 @@
                     </div>
                     <div class="table-column column-bind">
                         <div class="column-content">
-                            <span> {{row.value.bind}}</span>
+                            <span> {{row.value.settings.bind}}</span>
                         </div>
                     </div>
                     <div class="table-column column-protocol without-border">
                         <div class="column-content">
-                            <span class="measure">{{row.value.protocol}}</span>
+                            <span class="measure">{{row.value.settings.protocol}}</span>
                         </div>
                     </div>
                     <div class="table-column column-connection">
                         <div class="column-content">
                             <span class="ui-image arrow-connection"></span>&#160;
                             <span>
-                                {{row.value.stats?.active_connections}}
+                                {{row.value.stats?.activeConnections}}
                             </span>
                         </div>
                     </div>
@@ -33,8 +33,11 @@
                                 <div class="text-align-center">
                                     <span class="measure">rx</span>
                                 </div>
-                                <span class="ui-image arrow-green"></span>&#160;
-                                <span>{{row.value.stats?.rx_total}}</span>
+                                <span class="ui-image"
+                                      [class.arrow-red]="row.value.getStatsTrend('rx') < 0"
+                                      [class.arrow-green]="row.value.getStatsTrend('rx') >= 0"
+                                ></span>&#160;
+                                <span>{{row.value.stats?.rxSecond}}</span>
                                 <span class="measure">mb/s</span>
                             </div>
                         </div>
@@ -45,8 +48,11 @@
                                 <div class="text-align-center">
                                     <span class="measure">tx</span>
                                 </div>
-                                <span class="ui-image arrow-red"></span>&#160;
-                                <span>{{row.value.stats?.rx_total}}</span>
+                                <span class="ui-image"
+                                      [class.arrow-red]="row.value.getStatsTrend('tx') < 0"
+                                      [class.arrow-green]="row.value.getStatsTrend('tx') >= 0"
+                                ></span>&#160;
+                                <span>{{row.value.stats?.txSecond}}</span>
                                 <span class="measure">mb/s</span>
                             </div>
                             <span></span>

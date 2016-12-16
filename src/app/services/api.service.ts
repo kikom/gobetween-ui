@@ -39,36 +39,29 @@ export class ApiService {
     /**
      * Get info about all servers
      */
-    getServers(): Observable<{[name:string]: Server}> {
+    getServers(): Observable<{[name:string]: any}> {
         return Observable
             .timer(0, this.interval)
             .flatMap(() => this.http.get(this.apiUrl + '/servers'))
-            .map(r => <{[name:string]: Server}> r.json())
-            .do(servers => {
-                _.forIn(servers, (v, k) => {
-                    this.getServerStats(k).then(stats => {
-                        v.stats = stats;
-                    });
-                });
-            })
+            .map(r => <{[name:string]: any}> r.json())
             .catch(err => this.handleError(err));
     }
 
     /**
      * Get info about specific server
      */
-    getServerByName(name: string): Observable<Server> {
+    getServerByName(name: string): Observable<any> {
         return this.http.get(this.apiUrl + '/servers/' + name)
-            .map(r => <Server> r.json())
+            .map(r => r.json())
             .catch(err => this.handleError(err))
     }
 
     /**
      * Get stats of specific server
      */
-    getServerStats(name: string): Promise<ServerStats> {
+    getServerStats(name: string): Promise<any> {
         return this.http.get(this.apiUrl + '/servers/' + name + '/stats')
-            .map(r => <ServerStats> r.json())
+            .map(r => r.json())
             .toPromise()
     }
 

@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 
 @Pipe({
     name: 'mapToIterable',
-    pure: true
+    pure: false
 })
 
 export class MapToIterablePipe implements PipeTransform {

@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
-import { ApiService } from "../services/api.service";
+import {Component, ChangeDetectorRef} from "@angular/core";
 import { SortServerService } from "../services/sort-servers.service";
+import {ServersService} from "../services/servers.service";
+import {Server} from "../entities/server";
 
 @Component({
     selector: 'page-servers',
@@ -10,7 +11,7 @@ import { SortServerService } from "../services/sort-servers.service";
 export class ServersComponent {
 
     constructor(
-        private api: ApiService,
+        private serversService: ServersService,
         private sorting: SortServerService
     ) {}
 
@@ -20,20 +21,22 @@ export class ServersComponent {
 
     ngOnInit() {
 
+        this.servers = this.serversService.servers;
+
+        this.serversService.subscribe(() => {
+            console.log('refreshed!');
+            //TODO refresh component when servers refreshed
+        });
+
         this.serverSorting = {
             sortBy: this.sorting.arrFiends[0],
             sortOrder: this.sorting.arrOrders[0].value
         };
 
-        this.api.getServers().subscribe((servers) => {
-            console.log(servers);
-            this.servers = servers;
-        });
-
         this.sorting.subscribe((sort: ServersSorting) => {
             this.serverSorting = sort;
         });
-    }
+    };
 
     onClickSort(){
         this.sorting.openPopup();
