@@ -10,7 +10,6 @@ interface ServersSorting{
     sortOrder: string;
 }
 
-interface EventUI{
-    name: string,
-    data: any
+interface StatePopup{
+   opened: boolean
 }

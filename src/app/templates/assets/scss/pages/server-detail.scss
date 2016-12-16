@@ -12,6 +12,7 @@
 
   .title-block{
     display: block;
+    position: relative;
     text-align: left;
     font-family: source_sans_proregular;
     font-size: 14px;
@@ -34,16 +35,15 @@
 
     .btn-back{
       display: inline-block;
-      transform: rotateY(180deg);
+      transform: translate(0, -50%) rotateY(180deg);
+      position: absolute;
+      left: 0;
+      top: 50%;
     }
 
     .title{
-      margin-left: 40px;
-    }
-
-    &>*{
-      display: inline-block;
-      vertical-align: middle;
+      display: block;
+      margin-left: 50px;
     }
   }
 
@@ -55,6 +55,10 @@
     font-style: normal;
     font-stretch: normal;
     color: #0163b4;
+
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 20px;
 
   }
 
@@ -86,11 +90,13 @@
 
   .stats-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 
     .stats-block{
-      width: 100%;
+      width: 25%;
       padding:0 6px;
+      box-sizing: border-box;
 
       &:first-child{
         padding-left: 0;
@@ -177,12 +183,37 @@
         padding:0 10px;
       }
     }
+
+    .stats-container{
+      .stats-block{
+        width: 50%;
+        padding: 6px;
+
+        &:first-child{
+          padding-left: 6px;
+        }
+        &:last-child{
+          padding-right: 6px;
+        }
+
+      }
+    }
   }
 }
 
 @media screen and (max-width: 640px){
 
   .page-server-detail{
+
+    .title-block{
+      text-align: center;
+
+      .title{
+        display: inline-block;
+        margin-left: 0;
+      }
+    }
+
     .graphics-container{
       flex-direction: column;
       .graphic{
@@ -197,6 +228,43 @@
           padding-right: 0;
         }
       }
+      .graphic-content{
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+    }
+
+    .stats-container{
+      .stats-block{
+        width: 100%;
+        padding: 10px 0;
+
+        &:first-child{
+          padding-left: 0;
+        }
+        &:last-child{
+          padding-right: 0;
+          padding-bottom: 0;
+        }
+
+      }
+
+      .stats{
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+    }
+
+    >.content-wrapper{
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .subtitle{
+      text-align: center;
+      padding: 30px 0;
     }
   }
 
@@ -205,6 +273,12 @@
 @media screen and (max-width: 480px){
 
   .page-server-detail{
+
+   .button-container{
+      &.left{
+        justify-content: center;
+      }
+   }
 
   }
 

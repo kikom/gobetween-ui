@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import "./instances";
 import "./templates/assets/scss/styles.scss";
 
 @Component({
@@ -7,4 +8,5 @@ import "./templates/assets/scss/styles.scss";
 })
 
 export class AppComponent {
+
 }

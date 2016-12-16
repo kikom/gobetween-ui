@@ -8,15 +8,11 @@
       width: 40%;
     }
 
-    &.column-discovery{
-      width: 10%;
-    }
-
     &.column-connection{
-      width: 10%;
+      width: 15%;
     }
     &.column-rx{
-      width: 10%;
+      width: 15%;
     }
     &.column-tx{
       width: 30%;
@@ -48,9 +44,6 @@
 
     .table-column{
 
-      &.column-name{
-        width: 13%;
-      }
       &.column-bind{
         width: 27%;
       }
@@ -88,15 +81,17 @@
         display: none;
       }
 
-      &.column-name{
+      &.column-bind{
         width: 100%;
       }
 
-      &.column-bind{
-        width: 70%;
+      &.column-connection{
+        width: 15%;
       }
-
-      &.column-protocol{
+      &.column-rx{
+        width: 15%;
+      }
+      &.column-tx{
         width: 30%;
       }
     }
