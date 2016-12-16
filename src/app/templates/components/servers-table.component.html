@@ -6,7 +6,7 @@
                 <div class="table-row">
                     <div class="table-column column-name">
                         <div class="column-content h-left">
-                            <span class="server-name">{{row.key}}</span>
+                            <span class="server-name" routerLink="/servers/{{row.key}}" routerLinkActive="active">{{row.key}}</span>
                         </div>
                     </div>
                     <div class="table-column column-bind">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="btn-detail">
-                    <a class="ui-image arrow-blue" routerLink="/info" routerLinkActive="active"></a>
+                    <a class="ui-image arrow-blue" routerLink="/servers/{{row.key}}" routerLinkActive="active"></a>
                 </div>
             </div>
         </div>

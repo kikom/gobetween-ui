@@ -23,6 +23,7 @@
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
+    cursor: pointer;
   }
 
   .table-column{
@@ -115,13 +116,6 @@
       position: relative;
       left: 0;
       transition: left 250ms;
-    }
-
-    &:hover{
-
-      >.ui-image{
-        left: -10px;
-      }
     }
   }
 }

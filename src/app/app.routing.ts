@@ -13,7 +13,7 @@ const appRoutes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'servers/:id',
+        path: 'servers/:server-id',
         component: ServerDetailComponent
     },
     {

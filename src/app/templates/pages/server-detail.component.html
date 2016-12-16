@@ -1,15 +1,15 @@
-<div class="page page-server-detail">
+<div class="page page-server-detail" *ngIf="server">
 
     <div class="title-container">
         <div class="content-wrapper">
-            <div class="title-block">
+            <div class="title-block" routerLink="/servers" routerLinkActive="active">
                 <span class="btn-back ui-image arrow-blue"></span>
                 <div class="title">
                     <div class="server-name">
-                        Gagarin
+                        {{serverId}}
                     </div>
                     <div class="server-host">
-                        999.999.999.999 <span>(tcp)</span>
+                        {{server.data.bind}} <span>({{server.data.protocol}})</span>
                     </div>
                 </div>
             </div>
@@ -41,23 +41,31 @@
                         <ul class="stats-list">
                             <li class="stats-item">
                                 <span class="key">Balance:</span>
-                                <span class="value">weight</span>
+                                <span class="value">{{server.data.balance}}</span>
                             </li>
                             <li class="stats-item">
                                 <span class="key">Max connections:</span>
-                                <span class="value">Unlimited</span>
+                                <span class="value">{{server.settings.maxConnections? server.settings.maxConnections: 'unlimited'}}</span>
                             </li>
                             <li class="stats-item">
-                                <span class="key">Client idle timeout</span>
-                                <span class="value">10m</span>
+                                <span class="key">Client idle timeout:</span>
+                                <span class="value">{{server.settings.clientIdleTimeout}}ms</span>
                             </li>
                             <li class="stats-item">
-                                <span class="key">Client idle timeout</span>
-                                <span class="value">10m</span>
+                                <span class="key">Backend idle timeout:</span>
+                                <span class="value">{{server.settings.backendIdleTimeout}}ms</span>
                             </li>
                             <li class="stats-item">
-                                <span class="key">Client idle timeout</span>
-                                <span class="value">10m</span>
+                                <span class="key">Backend connection timeout:</span>
+                                <span class="value">{{server.settings.backendConnectionTimeout}}ms</span>
+                            </li>
+                            <li class="stats-item">
+                                <span class="key">Protocol:</span>
+                                <span class="value">{{server.settings.protocol}}</span>
+                            </li>
+                            <li class="stats-item">
+                                <span class="key">Bind:</span>
+                                <span class="value">{{server.settings.bind}}</span>
                             </li>
                         </ul>
                     </div>
@@ -66,21 +74,29 @@
             <div class="stats-block">
                 <div class="stats">
                     <div class="header">
-                        <span class="title">Properties</span>
+                        <span class="title">Healthcheck</span>
                     </div>
                     <div class="body">
                         <ul class="stats-list">
                             <li class="stats-item">
-                                <span class="key">Balance:</span>
-                                <span class="value">weight</span>
+                                <span class="key">Interval:</span>
+                                <span class="value">{{server.healthcheck.interval}}s</span>
                             </li>
                             <li class="stats-item">
-                                <span class="key">Max connections:</span>
-                                <span class="value">Unlimited</span>
+                                <span class="key">Timeout:</span>
+                                <span class="value">{{server.healthcheck.timeout}}s</span>
                             </li>
                             <li class="stats-item">
-                                <span class="key">Client idle timeout</span>
-                                <span class="value">10m</span>
+                                <span class="key">Fails:</span>
+                                <span class="value">{{server.healthcheck.fails}}</span>
+                            </li>
+                            <li class="stats-item">
+                                <span class="key">Kind:</span>
+                                <span class="value">{{server.healthcheck.kind}}</span>
+                            </li>
+                            <li class="stats-item">
+                                <span class="key">Passes:</span>
+                                <span class="value">{{server.healthcheck.passes}}</span>
                             </li>
                         </ul>
                     </div>
@@ -89,44 +105,25 @@
             <div class="stats-block">
                 <div class="stats">
                     <div class="header">
-                        <span class="title">Properties</span>
+                        <span class="title">Discovery</span>
                     </div>
                     <div class="body">
                         <ul class="stats-list">
                             <li class="stats-item">
-                                <span class="key">Balance:</span>
-                                <span class="value">weight</span>
+                                <span class="key">Interval:</span>
+                                <span class="value">{{server.discovery.interval}}s</span>
                             </li>
                             <li class="stats-item">
-                                <span class="key">Max connections:</span>
-                                <span class="value">Unlimited</span>
+                                <span class="key">Timeout:</span>
+                                <span class="value">{{server.discovery.timeout}}s</span>
                             </li>
                             <li class="stats-item">
-                                <span class="key">Client idle timeout</span>
-                                <span class="value">10m</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="stats-block">
-                <div class="stats">
-                    <div class="header">
-                        <span class="title">Properties</span>
-                    </div>
-                    <div class="body">
-                        <ul class="stats-list">
-                            <li class="stats-item">
-                                <span class="key">Balance:</span>
-                                <span class="value">weight</span>
+                                <span class="key">Failpolicy:</span>
+                                <span class="value">{{server.discovery.failpolicy}}</span>
                             </li>
                             <li class="stats-item">
-                                <span class="key">Max connections:</span>
-                                <span class="value">Unlimited</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Client idle timeout</span>
-                                <span class="value">10m</span>
+                                <span class="key">Kind:</span>
+                                <span class="value">{{server.discovery.kind}}</span>
                             </li>
                         </ul>
                     </div>
@@ -136,7 +133,7 @@
         <h2 class="subtitle">Backends</h2>
     </div>
 
-    <ui-backends-table></ui-backends-table>
+    <ui-backends-table [rows]="server.backends"></ui-backends-table>
 
     <div class="content-wrapper mt-60">
         <div class="button-container left pb-60">

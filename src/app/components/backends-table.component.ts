@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import {Backend} from "../entities/backend";
 
 @Component({
     selector: 'ui-backends-table',
@@ -7,10 +8,10 @@ import { Component, Input } from '@angular/core';
 export class BackendsTableComponent {
 
     @Input()
-    rows: any;
+    rows: { [key:string]: Backend} = {};
 
 
     constructor(){
-        this.rows = [{},{},{}];
+
     }
 }

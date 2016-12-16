@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
-import { ApiService } from "../services/api.service";
-import { SortServerService } from "../services/sort-servers.service";
+import * as _ from "lodash";
+import { Router, ActivatedRoute } from "@angular/router";
+import { ServersService } from "../services/servers.service";
+import {Server} from "../entities/server";
 
 @Component({
     selector: 'page-servers',
@@ -9,12 +11,38 @@ import { SortServerService } from "../services/sort-servers.service";
 
 export class ServerDetailComponent {
 
-    constructor(
 
+    private serverId: string;
+    private server: Server;
+
+    constructor(
+        private route: ActivatedRoute,
+        private serversService: ServersService,
     ) {}
 
     ngOnInit() {
 
+        this.server = null;
+
+        this.route.params.subscribe((data: any)=>{
+            if(data['server-id']) {
+                this.serverId = data['server-id'];
+
+                this.setServer();
+            }
+        });
+
+
+        this.serversService.subscribe(() => {
+            if(this.serverId){
+                this.setServer()
+            }
+            console.log(this.server);
+        });
+    }
+
+    setServer(){
+        this.server = this.serversService.servers[this.serverId];
     }
 
 }

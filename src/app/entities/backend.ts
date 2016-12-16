@@ -68,7 +68,7 @@ export class Backend {
      * Get stats trend
      * @returns {number}
      */
-    getStatsTrend() {
+    getStatsTxTrend() {
         let last = this.stats,
             penult = this._stats[this._stats.length - 2];
 
@@ -78,6 +78,24 @@ export class Backend {
         if(last.txSecond < penult.txSecond) {
             return -1
         }
+    }
+
+    public getStatsTrend(direction: string): number {
+        let last = this.stats,
+            penult = this._stats[this._stats.length - 2];
+
+        if (!last || !penult) {
+            return 0;
+        }
+
+        if (last[direction + 'Second'] > penult[direction + 'Second']) {
+            return 1;
+        }
+        if(last[direction + 'Second'] < penult[direction + 'Second']) {
+            return -1;
+        }
+
+        return 0;
     }
 
     /**
