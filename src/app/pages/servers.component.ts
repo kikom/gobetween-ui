@@ -25,6 +25,8 @@ export class ServersComponent {
 
         this.serversService.subscribe(() => {
             console.log('refreshed!');
+
+            console.log(this.servers);
             //TODO refresh component when servers refreshed
         });
 

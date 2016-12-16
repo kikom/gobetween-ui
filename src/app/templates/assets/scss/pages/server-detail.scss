@@ -137,36 +137,35 @@
         padding:0 13px;
       }
 
+    }
 
-      .stats-list{
-        max-height: 120px;
-        overflow-y: auto;
-        list-style-type: none;
+    .stats-list{
+      max-height: 120px;
+      overflow-y: auto;
+      list-style-type: none;
 
-        padding-left: 0;
-        margin: 0;
+      padding-left: 0;
+      margin: 0;
 
 
-        font-family: source_sans_proregular;
-        font-size: 19px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        color: #585858;
+      font-family: source_sans_proregular;
+      font-size: 19px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #585858;
 
-        .stats-item{
-          background-color: #fbfbfb;
-          padding: 8px 13px;
+      .stats-item{
+        background-color: #fbfbfb;
+        padding: 8px 13px;
 
-          &:nth-child(even){
-            background-color: #efefef;
-          }
+        &:nth-child(even){
+          background-color: #efefef;
         }
+      }
 
-        .value{
-          font-family: source_sans_probold;
-        }
-
+      .value{
+        font-family: source_sans_probold;
       }
 
     }
@@ -254,6 +253,9 @@
         border-radius: 0;
         border-left: none;
         border-right: none;
+      }
+      .stats-list{
+        max-height: inherit;
       }
     }
 
