@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from "./common.module";
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { SortServerService } from "./services/sort-servers.service";
 
@@ -11,13 +12,15 @@ import { HeaderComponent } from "./components/header.component";
 import { SortPopupComponent } from "./components/sort-popup.component";
 import { DropDownComponent } from './components/drop-down.component';
 import { RadioButtonsComponent } from './components/radio-buttons.component';
+import { ConnectionGraphic } from './components/graphics/graphic.component';
 
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule,
-        CommonModule
+        CommonModule,
+        ChartsModule
     ],
     declarations: [
         ServersTableComponent,
@@ -25,7 +28,8 @@ import { RadioButtonsComponent } from './components/radio-buttons.component';
         HeaderComponent,
         SortPopupComponent,
         DropDownComponent,
-        RadioButtonsComponent
+        RadioButtonsComponent,
+        ConnectionGraphic
     ],
     providers: [
         SortServerService
@@ -36,7 +40,8 @@ import { RadioButtonsComponent } from './components/radio-buttons.component';
         SortPopupComponent,
         DropDownComponent,
         RadioButtonsComponent,
-        BackendsTableComponent
+        BackendsTableComponent,
+        ConnectionGraphic
     ]
 })
 

@@ -27,7 +27,6 @@ export class ServerDetailComponent {
         this.route.params.subscribe((data: any)=>{
             if(data['server-id']) {
                 this.serverId = data['server-id'];
-
                 this.setServer();
             }
         });
@@ -37,12 +36,12 @@ export class ServerDetailComponent {
             if(this.serverId){
                 this.setServer()
             }
-            console.log(this.server);
         });
     }
 
     setServer(){
         this.server = this.serversService.servers[this.serverId];
+        console.log(this.server);
     }
 
 }
