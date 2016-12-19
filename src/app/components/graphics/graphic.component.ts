@@ -134,7 +134,7 @@ export class ConnectionGraphic implements OnInit, AfterContentChecked{
 
     renderTooltipLabel(tooltipItem:any, data: any){
 
-        let yValue: number = tooltipItem.y;
+        let yValue: number = tooltipItem.yLabel;
         let datasetIndex: number = tooltipItem.datasetIndex;
 
         let needLinePoint = data.datasets[datasetIndex];
