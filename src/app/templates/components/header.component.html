@@ -2,14 +2,14 @@
     <div class="content-wrapper">
         <div class="header-content">
             <div class="content-left">
-                <a class="logo-container" href="#">
+                <a class="logo-container" href="/">
                     <img src="../assets/images/Logo.svg">
                 </a>
             </div>
             <div class="content-right">
                 <div class="navigation">
-                    <a class="item" routerLink="/info" routerLinkActive="active">Add new server</a>
-                    <a class="item" routerLink="/servers" routerLinkActive="active">Dump config</a>
+                    <a class="item" routerLink="/" routerLinkActive="active">Add new server</a>
+                    <a class="item" routerLink="/" routerLinkActive="active">Dump config</a>
                     <a class="item" routerLink="/about" routerLinkActive="active">About</a>
                 </div>
                 <div class="btn-mobile-menu" (click)="openMenu($event)">
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-    <div class="popup-menu {{opened?'show': null}}">
+    <div class="popup-menu" [class.show]="opened">
         <div class="popup-content">
             <ul class="nav-list">
                 <li class="item">
