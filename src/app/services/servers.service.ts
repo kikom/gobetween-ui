@@ -41,4 +41,8 @@ export class ServersService extends Subject<any> {
             this.next();
         })
     }
+
+    getServer(serverName: string): Server{
+        return this.servers[serverName];
+    }
 }

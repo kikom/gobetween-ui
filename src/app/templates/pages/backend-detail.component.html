@@ -1,0 +1,47 @@
+<div class="page page-server-detail" *ngIf="backend">
+
+    <div class="title-container">
+        <div class="content-wrapper">
+            <div class="title-block" routerLink="/servers/{{serverId}}" routerLinkActive="active">
+                <span class="btn-back ui-image arrow-blue"></span>
+                <div class="title">
+                    <div class="server-name">
+                        {{backendId}}
+                    </div>
+                    <div class="server-host">
+                        {{server.data.bind}} <span>({{server.data.protocol}})</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <h2 class="subtitle">General stat</h2>
+        <div class="graphics-container">
+            <div class="graphic">
+                <div class="graphic-content">
+                    <ui-graphic
+                            [arrStats]= "backend.getStatsHistory()"
+                            [lastElements]= "12"
+                            [showLegend]="false"
+                            [titleText]='"Active connection"'
+                            [shema]= "{activeConnection: 'Active Connections'}"
+                    ></ui-graphic>
+                </div>
+            </div>
+            <div class="graphic">
+                <div class="graphic-content">
+                    <ui-graphic
+                            [arrStats]= "backend.getStatsHistory()"
+                            [lastElements]= "12"
+                            [showLegend]="true"
+                            [shema]= "{rxSecond: 'RX (mb/s)', txSecond: 'TX(mb/s)'}"
+                    ></ui-graphic>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

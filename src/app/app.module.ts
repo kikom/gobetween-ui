@@ -9,6 +9,7 @@ import {InfoComponent} from "./pages/info.component";
 import {AboutComponent} from "./pages/about.component";
 import {ServersComponent} from "./pages/servers.component";
 import {ServerDetailComponent} from "./pages/server-detail.component";
+import {BackendDetailComponent} from "./pages/backend-detail.component";
 
 
 import {CommonModule} from "./common.module";
@@ -29,7 +30,8 @@ import {ServersService} from "./services/servers.service";
         InfoComponent,
         AboutComponent,
         ServersComponent,
-        ServerDetailComponent
+        ServerDetailComponent,
+        BackendDetailComponent
     ],
     bootstrap: [AppComponent]
 })

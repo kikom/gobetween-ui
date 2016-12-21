@@ -1,15 +1,16 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import * as _ from "lodash";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ServersService } from "../services/servers.service";
 import {Server} from "../entities/server";
+import {Backend} from "../entities/backend";
 
 @Component({
     selector: 'page-servers',
     templateUrl: '../templates/pages/server-detail.component.html'
 })
 
-export class ServerDetailComponent {
+export class ServerDetailComponent implements OnInit{
 
 
     private serverId: string;
@@ -17,6 +18,7 @@ export class ServerDetailComponent {
 
     constructor(
         private route: ActivatedRoute,
+        private router: Router,
         private serversService: ServersService,
     ) {}
 
@@ -41,7 +43,6 @@ export class ServerDetailComponent {
 
     setServer(){
         this.server = this.serversService.servers[this.serverId];
-        console.log(this.server);
     }
 
 }

@@ -112,6 +112,16 @@ export class Server {
         return this._stats;
     }
 
+
+    /**
+     * Get backend by name
+     * @returns {Backend}
+     */
+
+    public getBackend(name: string):Backend{
+        return this.backends[name];
+    }
+
     /**
      * Update backends
      * @param data

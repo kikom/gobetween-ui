@@ -1,6 +1,6 @@
 
 <div class="ui-table ui-backends-table">
-    <div class="table-line" *ngFor="let row of rows| mapToIterable">
+    <div class="table-line" *ngFor="let row of rows| mapToIterable" routerLink="/servers/{{serverId}}/{{row.key}}" routerLinkActive="active">
         <div class="content-wrapper">
             <div class="table-content">
                 <div class="table-row">
@@ -30,7 +30,7 @@
                                       [class.arrow-red]="row.value.getStatsTrend('rx') < 0"
                                       [class.arrow-green]="row.value.getStatsTrend('rx') >= 0"
                                 ></span>&#160;
-                                <span>{{row.value.stats.rx}}</span>
+                                <span>{{row.value.stats.rxSecond}}</span>
                                 <span class="measure">mb/s</span>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                       [class.arrow-red]="row.value.getStatsTrend('tx') < 0"
                                       [class.arrow-green]="row.value.getStatsTrend('tx') >= 0"
                                 ></span>&#160;
-                                <span>{{row.value.stats.tx}}</span>
+                                <span>{{row.value.stats.txSecond}}</span>
                                 <span class="measure">mb/s</span>
                             </div>
                             <span></span>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="btn-detail">
-                    <a class="ui-image arrow-blue" routerLink="/info" routerLinkActive="active"></a>
+                    <a class="ui-image arrow-blue"></a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 
 <div class="ui-table ui-servers-table">
-    <div class="table-line" *ngFor="let row of rows| mapToIterable | sort:sortBy:sortOrder">
+    <div class="table-line" *ngFor="let row of rows| mapToIterable | sort:sortBy:sortOrder" routerLink="/servers/{{row.key}}" routerLinkActive="active">
         <div class="content-wrapper">
             <div class="table-content">
                 <div class="table-row">
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="btn-detail">
-                    <a class="ui-image arrow-blue" routerLink="/servers/{{row.key}}" routerLinkActive="active"></a>
+                    <a class="ui-image arrow-blue"></a>
                 </div>
             </div>
         </div>
