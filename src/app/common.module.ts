@@ -3,6 +3,7 @@ import {BrowserModule}  from "@angular/platform-browser";
 
 import {MapToIterablePipe} from "./pipes/map-to-iterable.pipe";
 import {SortPipe} from "./pipes/sort.pipe";
+import {StatsPipe} from "./pipes/stats.pipe";
 
 
 @NgModule({
@@ -11,11 +12,13 @@ import {SortPipe} from "./pipes/sort.pipe";
     ],
     declarations: [
         MapToIterablePipe,
-        SortPipe
+        SortPipe,
+        StatsPipe
     ],
     exports: [
         MapToIterablePipe,
-        SortPipe
+        SortPipe,
+        StatsPipe
     ]
 })
 export class CommonModule { }

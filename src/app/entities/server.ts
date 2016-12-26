@@ -14,6 +14,10 @@ export class Server {
         clientIdleTimeout: string;
         maxConnections: number;
         protocol: string;
+        access: {
+            default: string;
+            rules: string[];
+        };
     };
 
     backends: {[key:string]: Backend} = {};
@@ -43,7 +47,8 @@ export class Server {
             bind: data.bind || null,
             clientIdleTimeout: data.client_idle_timeout || null,
             maxConnections: data.max_connections || null,
-            protocol: data.protocol || null
+            protocol: data.protocol || null,
+            access: data.access || null
         };
 
         if (data.discovery) {
