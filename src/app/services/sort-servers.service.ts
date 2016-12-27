@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
+import { Subject, ReplaySubject } from "rxjs";
 
 @Injectable()
 export class SortServerService{
@@ -39,12 +39,18 @@ export class SortServerService{
         }
     ];
 
-    private stateSort: Subject<ServersSorting>;
+    public stateSort: ReplaySubject<ServersSorting>;
     private statePopup: Subject<StatePopup>;
 
     constructor() {
-        this.stateSort = new Subject<ServersSorting>();
+        this.stateSort = new ReplaySubject<ServersSorting>();
         this.statePopup = new Subject<StatePopup>();
+
+
+        this.stateSort.next({
+            sortBy: this.arrFiends[0],
+            sortOrder: this.arrOrders[0].value
+        });
     }
 
     subscribe(next: any = null, error: any= null, complete: any = null){

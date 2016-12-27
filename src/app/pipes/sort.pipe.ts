@@ -13,9 +13,9 @@ export class SortPipe implements PipeTransform {
         let prop = {
             name: (obj: {key:string, value: Server}) => obj.key,
             bind: (obj: {key:string, value: Server}) => _.get(obj, 'value.bind'),
-            rx: (obj: {key:string, value: Server}) => _.get(obj, 'value.stats.rxTotal'),
-            tx: (obj: {key:string, value: Server}) => _.get(obj, 'value.stats.txTotal'),
-            total: (obj: {key:string, value: Server}) => <number>_.get(obj, 'value.stats.rxTotal') + <number>_.get(obj, 'value.stats.txTotal')
+            rx: (obj: {key:string, value: Server}) => _.get(obj, 'value.stats.rxSecond'),
+            tx: (obj: {key:string, value: Server}) => _.get(obj, 'value.stats.txSecond'),
+            total: (obj: {key:string, value: Server}) => <number>_.get(obj, 'value.stats.rxSecond') + <number>_.get(obj, 'value.stats.txSecond')
         };
 
         return array.sort((a, b) => {

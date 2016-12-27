@@ -30,11 +30,6 @@ export class ServersComponent {
             //TODO refresh component when servers refreshed
         });
 
-        this.serverSorting = {
-            sortBy: this.sorting.arrFiends[0],
-            sortOrder: this.sorting.arrOrders[0].value
-        };
-
         this.sorting.subscribe((sort: ServersSorting) => {
             this.serverSorting = sort;
         });
