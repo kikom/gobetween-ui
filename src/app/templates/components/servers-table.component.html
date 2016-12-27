@@ -34,8 +34,9 @@
                                     <span class="measure">rx</span>
                                 </div>
                                 <span class="ui-image"
+                                      [class.arrow-gray]="row.value.getStatsTrend('rx') == 0"
                                       [class.arrow-red]="row.value.getStatsTrend('rx') < 0"
-                                      [class.arrow-green]="row.value.getStatsTrend('rx') >= 0"
+                                      [class.arrow-green]="row.value.getStatsTrend('rx') > 0"
                                 ></span>&#160;
                                 <span>{{row.value.stats?.rxSecond | statsPipe}}</span>
                                 <span class="measure">{{row.value.stats?.rxSecond | statsPipe:'unit'}}</span>
@@ -49,8 +50,9 @@
                                     <span class="measure">tx</span>
                                 </div>
                                 <span class="ui-image"
+                                      [class.arrow-gray]="row.value.getStatsTrend('rx') == 0"
                                       [class.arrow-red]="row.value.getStatsTrend('tx') < 0"
-                                      [class.arrow-green]="row.value.getStatsTrend('tx') >= 0"
+                                      [class.arrow-green]="row.value.getStatsTrend('tx') > 0"
                                 ></span>&#160;
                                 <span>{{row.value.stats?.txSecond | statsPipe}}</span>
                                 <span class="measure">{{row.value.stats?.txSecond | statsPipe:'unit'}}</span>
