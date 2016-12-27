@@ -18,6 +18,8 @@ export class AboutComponent {
     ngOnInit() {
         this.api.getInfo().subscribe(info => {
             this.info = info;
+
+            console.log(this.info);
         })
     }
 

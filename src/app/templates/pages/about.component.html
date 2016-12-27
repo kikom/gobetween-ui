@@ -1,3 +1,31 @@
 <div class="page page-about">
-    About something
+
+    <div class="content-wrapper">
+        <div class="title">Configuration</div>
+        <ul class="config-list">
+            <li class="item" *ngFor="let item of info.configuration| mapToIterable;">
+                <span class="key">{{item.key}}</span>:
+                <span class="value">{{item.value}}</span>
+            </li>
+        </ul>
+
+        <div class="title">Info</div>
+        <ul class="config-list">
+            <li class="item">
+                <span class="key">Start time</span>:
+                <span class="value">{{ info.startTime | date:'medium' }}</span></li>
+            <li class="item">
+                <span class="key">Time</span>:
+                <span class="value">{{ info.time | date:'medium' }}</span></li>
+            <li class="item">
+                <span class="key">Up time</span>:
+                <span class="value">{{info.uptime}}</span>
+            </li>
+            <li class="item">
+                <span class="key">Version</span>:
+                <span class="value">{{info.version}}</span>
+            </li>
+        </ul>
+    </div>
+
 </div>

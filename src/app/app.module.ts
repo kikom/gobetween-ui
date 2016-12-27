@@ -5,7 +5,6 @@ import {ApiService} from "./services/api.service";
 import {HttpModule} from "@angular/http";
 import {routing} from "./app.routing";
 
-import {InfoComponent} from "./pages/info.component";
 import {AboutComponent} from "./pages/about.component";
 import {ServersComponent} from "./pages/servers.component";
 import {ServerDetailComponent} from "./pages/server-detail.component";
@@ -27,7 +26,6 @@ import {ServersService} from "./services/servers.service";
     providers: [ApiService, ServersService],
     declarations: [
         AppComponent,
-        InfoComponent,
         AboutComponent,
         ServersComponent,
         ServerDetailComponent,
