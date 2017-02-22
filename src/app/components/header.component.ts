@@ -31,7 +31,11 @@ export class HeaderComponent implements OnInit{
         this.api.getDump().then((data) => {
             let blob = new Blob([data._body], {type: 'text/plain; charset=utf-8'});
             let url = window.URL.createObjectURL(blob);
-            window.open(url);
+
+            var link = document.createElement("a");
+            link.href = url;
+
+            link.click();
         })
     }
 
