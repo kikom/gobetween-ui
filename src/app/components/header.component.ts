@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit{
 
             var link = document.createElement("a");
             link.href = url;
+            link.target = "blank";
 
             link.click();
         })
