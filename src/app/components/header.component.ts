@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService} from "../services/api.service";
 
 @Component({
     selector: 'ui-header',
@@ -9,7 +10,9 @@ export class HeaderComponent implements OnInit{
 
     private opened: boolean = false;
 
-    constructor() {}
+    constructor(
+        private api: ApiService
+    ) {}
 
     ngOnInit(){
 
@@ -21,6 +24,15 @@ export class HeaderComponent implements OnInit{
 
     closeMenu(){
         this.opened = false;
+    }
+
+    getDump() {
+        this.closeMenu();
+        this.api.getDump().then((data) => {
+            let blob = new Blob([data._body], {type: 'text/plain; charset=utf-8'});
+            let url = window.URL.createObjectURL(blob);
+            window.open(url);
+        })
     }
 
 }

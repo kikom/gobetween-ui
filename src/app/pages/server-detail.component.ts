@@ -45,4 +45,9 @@ export class ServerDetailComponent implements OnInit{
         this.server = this.serversService.servers[this.serverId];
     }
 
+    deleteServer(id: string) {
+        this.serversService.deleteServer(id);
+        this.router.navigate(['../'])
+    }
+
 }

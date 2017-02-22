@@ -42,7 +42,13 @@ export class ServersService extends Subject<any> {
         })
     }
 
-    getServer(serverName: string): Server{
+    getServer(serverName: string): Server {
         return this.servers[serverName];
+    }
+
+    deleteServer(serverName: string): void {
+        this.api.deleteServer(serverName).then(() => {
+            delete this.servers[serverName];
+        })
     }
 }

@@ -30,10 +30,10 @@ export class ApiService {
     /**
      * Get config dump
      */
-    getDump(): Observable<any> {
+    getDump(): Promise<any> {
         return this.http.get(this.apiUrl + '/dump')
-            .map(r => r.json())
             .catch(err => this.handleError(err))
+            .toPromise()
     }
 
     /**
@@ -78,10 +78,11 @@ export class ApiService {
     /**
      * Delete server by name
      */
-    deleteServer(name: string): Observable<any> {
-        return this.http.delete(this.apiUrl + '/servers' + name)
+    deleteServer(name: string): Promise<any> {
+        return this.http.delete(this.apiUrl + '/servers/' + name)
             .map(r => r.json())
             .catch(err => this.handleError(err))
+            .toPromise()
     }
 
 

@@ -8,8 +8,8 @@
             </div>
             <div class="content-right">
                 <div class="navigation">
-                    <a class="item" routerLink="/" routerLinkActive="active">Add new server</a>
-                    <a class="item" routerLink="/" routerLinkActive="active">Dump config</a>
+<!--                    <a class="item" routerLink="/" routerLinkActive="active">Add new server</a>-->
+                    <a class="item" (click)="getDump()" >Dump config</a>
                     <a class="item" routerLink="/about" routerLinkActive="active">About</a>
                 </div>
                 <div class="btn-mobile-menu" (click)="openMenu($event)">
@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="item">
-                    <a routerLink="/" routerLinkActive="active" (click)="closeMenu($event)">
+                    <a (click)="getDump()">
                         Dump config
                     </a>
                 </li>
