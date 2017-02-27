@@ -1,0 +1,38 @@
+page-login{
+
+
+  .content-center{
+    display: block;
+    max-width: 350px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 100px;
+
+    font-size: 16px;
+    text-align: center;
+  }
+  .logo{
+    display: block;
+    width: 300px;
+    height: auto;
+    margin:0 auto;
+  }
+
+
+  input{
+    line-height: 30px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    padding: 0 10px;
+  }
+
+  input[type="submit"]{
+    font-size: 16px;
+    line-height: 18px;
+    padding: 0;
+  }
+
+
+}

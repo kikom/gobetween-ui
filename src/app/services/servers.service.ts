@@ -9,14 +9,19 @@ import {Subject} from "rxjs";
 @Injectable()
 export class ServersService extends Subject<any> {
 
-    public servers: {[key:string]: Server} = {};
+    public servers: {[key:string]: Server};
 
     constructor(
         private api: ApiService
     ) {
         super();
+    }
 
-        api.getServers().subscribe((serversData) => {
+    init(){
+
+        this.servers = {};
+
+        this.api.getServers().subscribe((serversData) => {
 
             //remove absent servers
             _.each(this.servers, (server, name) => {
@@ -33,7 +38,7 @@ export class ServersService extends Subject<any> {
                     this.servers[name] = new Server(s);
                 }
 
-                api.getServerStats(name).then((stats) => {
+                this.api.getServerStats(name).then((stats) => {
                     this.servers[name].updateStats(stats);
                 })
             });

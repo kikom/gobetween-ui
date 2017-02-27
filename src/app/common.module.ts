@@ -6,6 +6,13 @@ import {SortPipe} from "./pipes/sort.pipe";
 import {StatsPipe} from "./pipes/stats.pipe";
 
 
+import {ApiService} from "./services/api.service";
+import {ServersService} from "./services/servers.service";
+import {SortServerService} from "./services/sort-servers.service";
+
+import {FetchGuard} from "./guards/fetch.quard"
+
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -19,6 +26,12 @@ import {StatsPipe} from "./pipes/stats.pipe";
         MapToIterablePipe,
         SortPipe,
         StatsPipe
+    ],
+    providers:[
+        ApiService,
+        ServersService,
+        SortServerService,
+        FetchGuard
     ]
 })
 export class CommonModule { }

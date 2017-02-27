@@ -1,14 +1,15 @@
-import {Component, ChangeDetectorRef} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import { SortServerService } from "../services/sort-servers.service";
 import {ServersService} from "../services/servers.service";
 import {Server} from "../entities/server";
+import {Subscription} from "rxjs";
 
 @Component({
     selector: 'page-servers',
     templateUrl: '../templates/pages/servers.component.html'
 })
 
-export class ServersComponent {
+export class ServersComponent implements OnInit, OnDestroy{
 
     constructor(
         private serversService: ServersService,
@@ -19,21 +20,25 @@ export class ServersComponent {
 
     serverSorting: ServersSorting;
 
+    serversSubscription: Subscription;
+
     ngOnInit() {
 
         this.servers = this.serversService.servers;
 
-        this.serversService.subscribe(() => {
-            console.log('refreshed!');
 
-            console.log(this.servers);
-            //TODO refresh component when servers refreshed
+        this.serversSubscription = this.serversService.subscribe(() => {
+            console.log('refreshed!');
         });
 
         this.sorting.subscribe((sort: ServersSorting) => {
             this.serverSorting = sort;
         });
     };
+
+    ngOnDestroy(){
+        this.serversSubscription.unsubscribe();
+    }
 
     onClickSort(){
         this.sorting.openPopup();

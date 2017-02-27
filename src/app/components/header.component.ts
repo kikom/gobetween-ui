@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {ApiService} from "../services/api.service";
 
 @Component({
@@ -11,7 +12,8 @@ export class HeaderComponent implements OnInit{
     private opened: boolean = false;
 
     constructor(
-        private api: ApiService
+        private api: ApiService,
+        private router: Router
     ) {}
 
     ngOnInit(){
