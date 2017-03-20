@@ -1,4 +1,4 @@
-import _ = require("lodash");
+import * as _ from "lodash";
 import {Backend} from "./backend";
 
 /**
@@ -134,7 +134,7 @@ export class Server {
     private updateBackends(data:any): void {
 
         //remove absent backends from server
-        _.each(this.backends, (backend, name ) => {
+        _.each(this.backends, (backend: any, name: string ) => {
             if (!_.find(data, {host: name.split('_')[0], port: name.split('_')[1]})) {
                 delete this.backends[name];
             }

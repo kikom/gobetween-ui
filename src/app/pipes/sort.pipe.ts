@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from "@angular/core";
-import _ = require("lodash");
+import * as _ from "lodash";
 import {Server} from "../entities/server";
 
 @Pipe({

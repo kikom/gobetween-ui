@@ -6,7 +6,7 @@ import * as _ from "lodash";
 
 @Component({
     selector: 'ui-graphic',
-    templateUrl: `
+    template: `
         <div *ngIf="arrStats && arrStats.length" class="ui-graphic">
             <canvas baseChart
                 [datasets]="lineChartData"
