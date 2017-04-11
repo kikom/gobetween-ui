@@ -25,7 +25,8 @@ module.exports = webpackMerge(commonConfig, {
             'ENV': JSON.stringify(ENV),
             'process.env': {
                 'ENV': JSON.stringify(ENV),
-                'NODE_ENV': JSON.stringify(ENV)
+                'NODE_ENV': JSON.stringify(ENV),
+                'config': JSON.stringify(require('./app.config.json'))
             }
         })
     ]
