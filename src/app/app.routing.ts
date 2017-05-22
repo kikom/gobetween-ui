@@ -27,10 +27,6 @@ const appRoutes: Routes = [
         component: AppLayoutComponent,
         children: [
             {
-                path: 'servers/:server-id/:backend-id',
-                component: BackendDetailComponent
-            },
-            {
                 path: 'servers/:server-id',
                 component: ServerDetailComponent
             },
@@ -46,4 +42,4 @@ const appRoutes: Routes = [
     }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, {useHash: true});

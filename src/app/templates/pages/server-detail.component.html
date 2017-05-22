@@ -18,19 +18,8 @@
     </div>
 
     <div class="content-wrapper">
-        <h2 class="subtitle">General stat</h2>
+        <h2 class="subtitle center">Active connections: {{server.stats.activeConnections}}</h2>
         <div class="graphics-container">
-            <div class="graphic">
-                <div class="graphic-content">
-                    <ui-graphic
-                            [arrStats]= "server._stats"
-                            [lastElements]= "12"
-                            [showLegend]="false"
-                            [titleText]='"Active connection"'
-                            [shema]= "{activeConnections: 'Active Connections'}"
-                    ></ui-graphic>
-                </div>
-            </div>
             <div class="graphic">
                 <div class="graphic-content">
                     <ui-graphic
@@ -42,7 +31,13 @@
                 </div>
             </div>
         </div>
-        <div class="stats-container mt-60">
+
+        <div class="backends-container">
+            <h2 class="subtitle">Backends</h2>
+            <ui-backends-table [rows]="server.backends" [serverId]="serverId" ></ui-backends-table>
+        </div>
+
+        <div class="stats-container">
             <div class="stats-block">
                 <div class="stats">
                     <div class="header">
@@ -141,10 +136,7 @@
                 </div>
             </div>
         </div>
-        <h2 class="subtitle">Backends</h2>
     </div>
-
-    <ui-backends-table [rows]="server.backends" [serverId]="serverId" ></ui-backends-table>
 
     <div class="content-wrapper mt-60">
         <div class="button-container left pb-60">

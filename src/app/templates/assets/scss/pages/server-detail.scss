@@ -48,7 +48,7 @@
   }
 
   .subtitle{
-
+    display: block;
     font-family: source_sans_probold;
     font-size: 19px;
     font-weight: bold;
@@ -60,6 +60,10 @@
     padding-top: 40px;
     padding-bottom: 20px;
 
+    &.center{
+      text-align: center;
+    }
+
   }
 
   .graphics-container{
@@ -68,7 +72,7 @@
     justify-content: space-between;
 
     .graphic{
-      width: 50%;
+      width: 100%;
       padding:0 30px;
       box-sizing: border-box;
 
@@ -142,13 +146,11 @@
     }
 
     .stats-list{
-      max-height: 120px;
       overflow-y: auto;
       list-style-type: none;
 
       padding-left: 0;
       margin: 0;
-
 
       font-family: source_sans_proregular;
       font-size: 19px;
@@ -171,6 +173,11 @@
       }
 
     }
+  }
+
+  .backends-container,.graphics-container, .stats-container{
+    box-sizing: border-box;
+    padding: 15px 0;
   }
 
 
