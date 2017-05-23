@@ -11,6 +11,8 @@ import {Subscription} from "rxjs";
 
 export class ServersComponent implements OnInit, OnDestroy{
 
+    ready: boolean;
+
     constructor(
         private serversService: ServersService,
         private sorting: SortServerService
@@ -26,10 +28,12 @@ export class ServersComponent implements OnInit, OnDestroy{
 
         this.servers = this.serversService.servers;
 
-
-        this.serversSubscription = this.serversService.subscribe(() => {
-            console.log('refreshed!');
-        });
+        this.serversSubscription = this.serversService
+            .delay(400)
+            .subscribe(() => {
+                console.log('refreshed!');
+                this.ready = true;
+            });
 
         this.sorting.subscribe((sort: ServersSorting) => {
             this.serverSorting = sort;

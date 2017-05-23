@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import * as _ from "lodash";
-import { Router, ActivatedRoute } from "@angular/router";
+import {Router, ActivatedRoute, Params} from "@angular/router";
 import { ServersService } from "../services/servers.service";
 import {Server} from "../entities/server";
 import {Backend} from "../entities/backend";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: 'page-servers',
@@ -26,23 +27,28 @@ export class ServerDetailComponent implements OnInit{
 
         this.server = null;
 
-        this.route.params.subscribe((data: any)=>{
-            if(data['server-id']) {
-                this.serverId = data['server-id'];
-                this.setServer();
-            }
-        });
+        this.route.params
+            .flatMap((params: Params)=>{
+                return Observable.combineLatest(
+                    Observable.of(params['server-id']),
+                    this.serversService
+                )
+            })
+            .delay(400)
+            .subscribe((data: any)=>{
 
+                this.serverId = data[0];
 
-        this.serversService.subscribe(() => {
-            if(this.serverId){
-                this.setServer()
-            }
-        });
+                if(this.serversService.getServer(this.serverId)){
+                    this.setServer()
+                }else{
+                    this.router.navigate(['../']);
+                }
+            });
     }
 
     setServer(){
-        this.server = this.serversService.servers[this.serverId];
+        this.server = this.serversService.getServer(this.serverId);
     }
 
     deleteServer(id: string) {

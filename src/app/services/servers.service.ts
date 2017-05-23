@@ -3,18 +3,18 @@ import "rxjs/add/observable/interval";
 import * as _ from "lodash";
 import {ApiService} from "./api.service";
 import {Server} from "../entities/server";
-import {Subject} from "rxjs";
+import { BehaviorSubject} from "rxjs";
 
 
 @Injectable()
-export class ServersService extends Subject<any> {
+export class ServersService extends BehaviorSubject<any> {
 
     public servers: {[key:string]: Server};
 
     constructor(
         private api: ApiService
     ) {
-        super();
+        super(null);
     }
 
     init(){
@@ -43,7 +43,7 @@ export class ServersService extends Subject<any> {
                 })
             });
 
-            this.next();
+            this.next(null);
         })
     }
 

@@ -1,146 +1,152 @@
-<div class="page page-server-detail" *ngIf="server">
+<div class="page page-server-detail">
 
-    <div class="title-container">
+    <div *ngIf="!(server && server.stats)">
+        <ui-preloader></ui-preloader>
+    </div>
+
+    <div *ngIf="server && server.stats">
+        <div class="title-container">
+            <div class="content-wrapper">
+                <div class="title-block" routerLink="/servers" routerLinkActive="active">
+                    <span class="btn-back ui-image arrow-blue"></span>
+                    <div class="title">
+                        <div class="server-name">
+                            {{serverId}}
+                        </div>
+                        <div class="server-host">
+                            {{server.data.bind}} <span>({{server.data.protocol}})</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <div class="content-wrapper">
-            <div class="title-block" routerLink="/servers" routerLinkActive="active">
-                <span class="btn-back ui-image arrow-blue"></span>
-                <div class="title">
-                    <div class="server-name">
-                        {{serverId}}
-                    </div>
-                    <div class="server-host">
-                        {{server.data.bind}} <span>({{server.data.protocol}})</span>
+            <h2 class="subtitle center">Active connections: {{server.stats.activeConnections}}</h2>
+            <div class="graphics-container">
+                <div class="graphic">
+                    <div class="graphic-content">
+                        <ui-graphic
+                                [arrStats]= "server._stats"
+                                [lastElements]= "12"
+                                [showLegend]="true"
+                                [shema]= "{rxSecond: 'RX (mb/s)', txSecond: 'TX(mb/s)'}"
+                        ></ui-graphic>
                     </div>
                 </div>
             </div>
 
-        </div>
-    </div>
-
-    <div class="content-wrapper">
-        <h2 class="subtitle center">Active connections: {{server.stats.activeConnections}}</h2>
-        <div class="graphics-container">
-            <div class="graphic">
-                <div class="graphic-content">
-                    <ui-graphic
-                            [arrStats]= "server._stats"
-                            [lastElements]= "12"
-                            [showLegend]="true"
-                            [shema]= "{rxSecond: 'RX (mb/s)', txSecond: 'TX(mb/s)'}"
-                    ></ui-graphic>
-                </div>
+            <div class="backends-container">
+                <h2 class="subtitle">Backends</h2>
+                <ui-backends-table [rows]="server.backends" [serverId]="serverId" ></ui-backends-table>
             </div>
-        </div>
 
-        <div class="backends-container">
-            <h2 class="subtitle">Backends</h2>
-            <ui-backends-table [rows]="server.backends" [serverId]="serverId" ></ui-backends-table>
-        </div>
-
-        <div class="stats-container">
-            <div class="stats-block">
-                <div class="stats">
-                    <div class="header">
-                        <span class="title">Properties</span>
-                    </div>
-                    <div class="body">
-                        <ul class="stats-list">
-                            <li class="stats-item">
-                                <span class="key">Balance:</span>
-                                <span class="value">{{server.data.balance}}</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Max connections:</span>
-                                <span class="value">{{server.settings.maxConnections? server.settings.maxConnections: 'unlimited'}}</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Client idle timeout:</span>
-                                <span class="value">{{server.settings.clientIdleTimeout}}ms</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Backend idle timeout:</span>
-                                <span class="value">{{server.settings.backendIdleTimeout}}ms</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Backend connection timeout:</span>
-                                <span class="value">{{server.settings.backendConnectionTimeout}}ms</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Protocol:</span>
-                                <span class="value">{{server.settings.protocol}}</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Bind:</span>
-                                <span class="value">{{server.settings.bind}}</span>
-                            </li>
-                        </ul>
+            <div class="stats-container">
+                <div class="stats-block">
+                    <div class="stats">
+                        <div class="header">
+                            <span class="title">Properties</span>
+                        </div>
+                        <div class="body">
+                            <ul class="stats-list">
+                                <li class="stats-item">
+                                    <span class="key">Balance:</span>
+                                    <span class="value">{{server.data.balance}}</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Max connections:</span>
+                                    <span class="value">{{server.settings.maxConnections? server.settings.maxConnections: 'unlimited'}}</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Client idle timeout:</span>
+                                    <span class="value">{{server.settings.clientIdleTimeout}}ms</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Backend idle timeout:</span>
+                                    <span class="value">{{server.settings.backendIdleTimeout}}ms</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Backend connection timeout:</span>
+                                    <span class="value">{{server.settings.backendConnectionTimeout}}ms</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Protocol:</span>
+                                    <span class="value">{{server.settings.protocol}}</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Bind:</span>
+                                    <span class="value">{{server.settings.bind}}</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="stats-block">
-                <div class="stats">
-                    <div class="header">
-                        <span class="title">Healthcheck</span>
-                    </div>
-                    <div class="body">
-                        <ul class="stats-list">
-                            <li class="stats-item">
-                                <span class="key">Interval:</span>
-                                <span class="value">{{server.healthcheck.interval}}s</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Timeout:</span>
-                                <span class="value">{{server.healthcheck.timeout}}s</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Fails:</span>
-                                <span class="value">{{server.healthcheck.fails}}</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Kind:</span>
-                                <span class="value">{{server.healthcheck.kind}}</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Passes:</span>
-                                <span class="value">{{server.healthcheck.passes}}</span>
-                            </li>
-                        </ul>
+                <div class="stats-block">
+                    <div class="stats">
+                        <div class="header">
+                            <span class="title">Healthcheck</span>
+                        </div>
+                        <div class="body">
+                            <ul class="stats-list">
+                                <li class="stats-item">
+                                    <span class="key">Interval:</span>
+                                    <span class="value">{{server.healthcheck.interval}}s</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Timeout:</span>
+                                    <span class="value">{{server.healthcheck.timeout}}s</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Fails:</span>
+                                    <span class="value">{{server.healthcheck.fails}}</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Kind:</span>
+                                    <span class="value">{{server.healthcheck.kind}}</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Passes:</span>
+                                    <span class="value">{{server.healthcheck.passes}}</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="stats-block">
-                <div class="stats">
-                    <div class="header">
-                        <span class="title">Discovery</span>
-                    </div>
-                    <div class="body">
-                        <ul class="stats-list">
-                            <li class="stats-item">
-                                <span class="key">Interval:</span>
-                                <span class="value">{{server.discovery.interval}}s</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Timeout:</span>
-                                <span class="value">{{server.discovery.timeout}}s</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Failpolicy:</span>
-                                <span class="value">{{server.discovery.failpolicy}}</span>
-                            </li>
-                            <li class="stats-item">
-                                <span class="key">Kind:</span>
-                                <span class="value">{{server.discovery.kind}}</span>
-                            </li>
-                        </ul>
+                <div class="stats-block">
+                    <div class="stats">
+                        <div class="header">
+                            <span class="title">Discovery</span>
+                        </div>
+                        <div class="body">
+                            <ul class="stats-list">
+                                <li class="stats-item">
+                                    <span class="key">Interval:</span>
+                                    <span class="value">{{server.discovery.interval}}s</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Timeout:</span>
+                                    <span class="value">{{server.discovery.timeout}}s</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Failpolicy:</span>
+                                    <span class="value">{{server.discovery.failpolicy}}</span>
+                                </li>
+                                <li class="stats-item">
+                                    <span class="key">Kind:</span>
+                                    <span class="value">{{server.discovery.kind}}</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="content-wrapper mt-60">
-        <div class="button-container left pb-60">
-            <div class="button" (click)="deleteServer(serverId)">Delete server</div>
+        <div class="content-wrapper mt-60">
+            <div class="button-container left pb-60">
+                <div class="button" (click)="deleteServer(serverId)">Delete server</div>
+            </div>
         </div>
     </div>
 

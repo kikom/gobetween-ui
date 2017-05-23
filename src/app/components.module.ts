@@ -13,6 +13,7 @@ import { SortPopupComponent } from "./components/sort-popup.component";
 import { DropDownComponent } from './components/drop-down.component';
 import { RadioButtonsComponent } from './components/radio-buttons.component';
 import { ConnectionGraphic } from './components/graphics/graphic.component';
+import { PreloaderComponent } from './components/preloder.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ConnectionGraphic } from './components/graphics/graphic.component';
         SortPopupComponent,
         DropDownComponent,
         RadioButtonsComponent,
-        ConnectionGraphic
+        ConnectionGraphic,
+        PreloaderComponent
     ],
     providers: [
         SortServerService
@@ -41,7 +43,8 @@ import { ConnectionGraphic } from './components/graphics/graphic.component';
         DropDownComponent,
         RadioButtonsComponent,
         BackendsTableComponent,
-        ConnectionGraphic
+        ConnectionGraphic,
+        PreloaderComponent
     ]
 })
 
