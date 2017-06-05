@@ -2,30 +2,32 @@
 
 ui-servers-table{
 
-  .table-column{
+  .ui-servers-table{
+    .table-column{
 
-    &.column-name{
-      width: 20%;
-    }
-    &.column-bind{
-      width: 20%;
-    }
-    &.column-protocol{
-      width: 5%;
-    }
-    &.column-discovery{
-      width: 13.33%;
-    }
-    &.column-connection{
-      width: 13.33%;
-    }
-    &.column-rx{
-      width: 13.33%;
-    }
-    &.column-tx{
-      width: 20%;
-    }
+      &.column-name{
+        width: 20%;
+      }
+      &.column-bind{
+        width: 20%;
+      }
+      &.column-protocol{
+        width: 5%;
+      }
+      &.column-discovery{
+        width: 13.33%;
+      }
+      &.column-connection{
+        width: 13.33%;
+      }
+      &.column-rx{
+        width: 13.33%;
+      }
+      &.column-tx{
+        width: 20%;
+      }
 
+    }
   }
 
 }
@@ -33,19 +35,20 @@ ui-servers-table{
 @media screen and (max-width: 980px){
 
   ui-servers-table{
+    .ui-servers-table {
+      .column-content {
+        font-size: 15px;
 
-    .column-content{
-      font-size: 15px;
-
-    }
-
-    .table-column{
-
-      &.column-name{
-        width: 13%;
       }
-      &.column-bind{
-        width: 27%;
+
+      .table-column {
+
+        &.column-name {
+          width: 13%;
+        }
+        &.column-bind {
+          width: 27%;
+        }
       }
     }
   }
@@ -56,36 +59,37 @@ ui-servers-table{
 
   ui-servers-table{
 
-    .content-wrapper{
-      padding: 0 0;
-    }
-
-    .table-line{
-      border-top: none;
-      &:last-child{
-        border-bottom: none;
-      }
-    }
-
-
-    .table-column{
-      border-bottom: solid 1px #bfbfbf;
-      padding: 0 10px;
-
-      &:before{
-        display: none;
+    .ui-servers-table {
+      .content-wrapper {
+        padding: 0 0;
       }
 
-      &.column-name{
-        width: 100%;
+      .table-line {
+        border-top: none;
+        &:last-child {
+          border-bottom: none;
+        }
       }
 
-      &.column-bind{
-        width: 70%;
-      }
+      .table-column {
+        border-bottom: solid 1px #bfbfbf;
+        padding: 0 10px;
 
-      &.column-protocol{
-        width: 30%;
+        &:before {
+          display: none;
+        }
+
+        &.column-name {
+          width: 100%;
+        }
+
+        &.column-bind {
+          width: 70%;
+        }
+
+        &.column-protocol {
+          width: 30%;
+        }
       }
     }
   }

@@ -1,4 +1,4 @@
 {
-  "gobetweenApiUrl": "http://lb.teradek.com:8888",
+  "gobetweenApiUrl": "http://localhost:8888",
   "refreshIntervalMs": 3000
 }

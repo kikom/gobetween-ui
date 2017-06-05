@@ -1,12 +1,11 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import * as _ from "lodash";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import {Server} from "../../entities/server";
 import {ServersService} from "../../services/servers.service";
 
 import "./server-detail.component.scss";
-import {Subscription} from "rxjs/Subscription";
 
 @Component({
     selector: 'page-server-detail',
