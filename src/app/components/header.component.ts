@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {ApiService} from "../services/api.service";
 
+import "./header.component.scss";
+
 @Component({
     selector: 'ui-header',
-    templateUrl: '../templates/components/header.component.html',
+    templateUrl: 'header.component.html',
 })
 export class HeaderComponent implements OnInit{
-
 
     private opened: boolean = false;
 
@@ -40,6 +41,12 @@ export class HeaderComponent implements OnInit{
 
             link.click();
         })
+    }
+
+    logout(){
+        this.closeMenu();
+        sessionStorage.removeItem("user");
+        this.router.navigate(['/login']);
     }
 
 }

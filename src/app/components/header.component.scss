@@ -1,0 +1,205 @@
+
+
+ui-header{
+  display: block;
+  background: #0163b4;
+  font-family: varela_roundregular;
+  z-index: 2;
+
+  .header-content{
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding: 15px 0;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-container{
+    display: inline-block;
+    height: 70px;
+    width: auto;
+
+    >img{
+     width: auto;
+     height: 100%;
+    }
+  }
+
+  .content-right, .content-left{
+    display: inline-block;
+  }
+
+  .navigation{
+      display: inline-block;
+      font-size: 19px;
+      margin-left: 0;
+      list-style-type: none;
+
+      .item{
+        display: inline-block;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.63;
+        color: #54acee;
+        cursor: pointer;
+        transition: color,border-bottom 250ms;
+        margin-right: 25px;
+        border-bottom: 2px solid transparent;
+        text-decoration: none;
+
+        &:last-child{
+          margin-right: 0;
+        }
+
+        &:hover{
+          color: #ffffff;
+          border-bottom-color: #ffffff;
+        }
+      }
+  }
+
+
+  .btn-mobile-menu{
+    display: none;
+    width: 30px;
+    cursor: pointer;
+
+    >i{
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: white;
+      border-radius: 3px;
+
+      &:not(:first-child){
+        margin-top: 6px;
+      }
+    }
+  }
+
+
+  .popup-menu{
+    display: none;
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(to bottom, #0163b4, #01305a), linear-gradient(#1f5b8c, #1f5b8c);
+    position: fixed;
+    left: 0;
+    top: 0;
+    text-align: center;
+
+    pointer-events: none;
+    transform: scale3d(0.6, 0.6, 1);
+    opacity: 0;
+    transition: all 250ms;
+
+    &.show{
+      opacity: 1;
+      pointer-events: all;
+      transform: scale3d(1, 1, 1);
+    }
+
+    .popup-content{
+      display: inline-block;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    &:after{
+      display: inline-block;
+      content: " ";
+      vertical-align: middle;
+      height: 100%;
+    }
+
+    .nav-list{
+      display: block;
+      margin: 0;
+      padding: 0;
+
+      list-style-type: none;
+      color: white;
+      font-family: varela_roundregular;
+      font-size: 30px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.03;
+      text-align: center;
+
+      .item{
+
+        &:not(:first-child){
+          margin-top: 40px;
+          cursor: pointer;
+        }
+      }
+
+      a{
+        color: inherit;
+      }
+
+    }
+
+
+    .btn-close{
+      display: block;
+      width: 25px;
+      height: auto;
+      cursor: pointer;
+
+      position: absolute;
+      right: 25px;
+      top: 25px;
+
+    }
+  }
+
+
+}
+
+@media screen and (max-width: 980px){
+
+  ui-header{
+
+    .logo-container{
+      height: 40px;
+    }
+
+    .navigation{
+      font-size: 14px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 480px){
+
+  ui-header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    .navigation{
+      display: none;
+    }
+
+    .header-content {
+      padding: 12px 0;
+    }
+
+    .btn-mobile-menu{
+      display: inline-block;
+    }
+
+    .popup-menu{
+      display: block;
+    }
+  }
+
+}

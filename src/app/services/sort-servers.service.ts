@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject, ReplaySubject } from "rxjs";
+import {ItemOption, ServersSorting, StatePopup} from "../entities/ui-entities";
 
 @Injectable()
 export class SortServerService{

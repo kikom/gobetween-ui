@@ -1,0 +1,61 @@
+ui-sort-popup {
+  .ui-sort-popup {
+
+    display: flex;
+    pointer-events: none;
+
+    .background {
+      background-color: rgba(24, 39, 51, 0);
+      transition: background-color 500ms;
+    }
+
+    .popup {
+      padding-top: 30px;
+      padding-bottom: 60px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      opacity: 0;
+      transform: scale3d(0.5, 0.5, 1);
+
+      transition: all 250ms;
+    }
+
+    .popup-content {
+      display: block;
+      width: 260px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 19px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      text-align: center;
+      color: #0163b4;
+      font-family: source_sans_proregular;
+
+      margin-bottom: 60px;
+    }
+
+    .button-container {
+      margin-top: 30px;
+    }
+
+    &.show {
+      pointer-events: all;
+
+      .background {
+        background-color: rgba(24, 39, 51, 0.9);
+      }
+
+      .popup {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+      }
+
+    }
+
+  }
+}

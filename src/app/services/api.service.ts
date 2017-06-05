@@ -90,7 +90,7 @@ export class ApiService {
 
 
     getHeaders(){
-        let user = JSON.parse(localStorage.getItem("user"));
+        let user = JSON.parse(sessionStorage.getItem("user"));
         let headers: Headers = new Headers();
 
         if(user) headers.append('Authorization', "Basic " + btoa(user["login"] + ":" + user["password"]));

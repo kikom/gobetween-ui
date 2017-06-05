@@ -9,6 +9,7 @@ import { BehaviorSubject} from "rxjs";
 @Injectable()
 export class ServersService extends BehaviorSubject<any> {
 
+    public fetched: boolean;
     public servers: {[key:string]: Server};
 
     constructor(
@@ -19,6 +20,7 @@ export class ServersService extends BehaviorSubject<any> {
 
     init(){
 
+        this.fetched = false;
         this.servers = {};
 
         this.api.getServers().subscribe((serversData) => {
@@ -43,6 +45,7 @@ export class ServersService extends BehaviorSubject<any> {
                 })
             });
 
+            this.fetched = true;
             this.next(null);
         })
     }

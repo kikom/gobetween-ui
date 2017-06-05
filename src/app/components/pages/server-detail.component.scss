@@ -1,0 +1,293 @@
+page-server-detail{
+
+  background-color: #fafafa;
+
+  .title-container{
+    border: solid 1px #cccccc;
+    background-color: #efefef;
+    padding: 10px 0;
+    cursor: pointer;
+  }
+
+  .title-block{
+    display: block;
+    position: relative;
+    text-align: left;
+    font-family: source_sans_proregular;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color: #0163b4;
+
+
+    .server-name{
+      display: block;
+      font-family: source_sans_probold;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .server-host{
+      display: block;
+    }
+
+    .btn-back{
+      display: inline-block;
+      transform: translate(0, -50%) rotateY(180deg);
+      position: absolute;
+      left: 0;
+      top: 50%;
+    }
+
+    .title{
+      display: block;
+      margin-left: 50px;
+    }
+  }
+
+  .subtitle{
+    display: block;
+    font-family: source_sans_probold;
+    font-size: 19px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    color: #0163b4;
+
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+    &.center{
+      text-align: center;
+    }
+
+  }
+
+  .graphics-container{
+
+    display: flex;
+    justify-content: space-between;
+
+    .graphic{
+      width: 100%;
+      padding:0 30px;
+      box-sizing: border-box;
+
+      &:first-child{
+        padding-left: 0;
+      }
+      &:last-child{
+        padding-right: 0;
+      }
+    }
+
+
+    .graphic-content{
+      border: solid 1px #bfbfbf;
+      height: auto;
+      border-radius: 4px;
+      padding: 10px 10px 20px 0px;
+      box-sizing: border-box;
+    }
+  }
+
+  .stats-container{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    .stats-block{
+      width: 33.33%;
+      padding:0 6px;
+      box-sizing: border-box;
+
+      &:first-child{
+        padding-left: 0;
+      }
+      &:last-child{
+        padding-right: 0;
+      }
+    }
+
+    .stats{
+      border-radius: 4px;
+      background-color: #fafafa;
+      border: solid 1px #bfbfbf;
+      text-align: left;
+
+
+      .header{
+        border-bottom: solid 1px #bfbfbf;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background-color: #efefef;
+
+        font-family: source_sans_proregular;
+        font-size: 19px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        color: #0163b4;
+
+        padding: 18px 0;
+
+      }
+      .body{
+
+      }
+
+      .title{
+        padding:0 13px;
+      }
+
+    }
+
+    .stats-list{
+      overflow-y: auto;
+      list-style-type: none;
+
+      padding-left: 0;
+      margin: 0;
+
+      font-family: source_sans_proregular;
+      font-size: 19px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      color: #585858;
+
+      .stats-item{
+        background-color: #fbfbfb;
+        padding: 8px 13px;
+
+        &:nth-child(even){
+          background-color: #efefef;
+        }
+      }
+
+      .value{
+        font-family: source_sans_probold;
+      }
+
+    }
+  }
+
+  .backends-container,.graphics-container, .stats-container{
+    box-sizing: border-box;
+    padding: 15px 0;
+  }
+
+
+}
+
+
+@media screen and (max-width: 980px){
+  .page-server-detail{
+    .graphics-container{
+      flex-direction: column;
+
+      .graphic{
+        padding:10px 0;
+        width: 100%;
+
+        &:first-child{
+          padding-top: 0;
+          padding-left: 0;
+        }
+        &:last-child{
+          padding-bottom: 0;
+          padding-right: 0;
+        }
+      }
+      .graphic-content{
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+    }
+
+
+
+    .stats-container{
+      .stats-block{
+        width: 50%;
+        padding: 6px;
+
+        &:first-child{
+          padding-left: 6px;
+        }
+        &:last-child{
+          padding-right: 6px;
+        }
+
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 640px){
+
+  .page-server-detail{
+
+    .title-block{
+      text-align: center;
+
+      .title{
+        display: inline-block;
+        margin-left: 0;
+      }
+    }
+
+    .stats-container{
+      .stats-block{
+        width: 100%;
+        padding: 10px 0;
+
+        &:first-child{
+          padding-left: 0;
+        }
+        &:last-child{
+          padding-right: 0;
+          padding-bottom: 0;
+        }
+
+      }
+
+      .stats{
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+      .stats-list{
+        max-height: inherit;
+      }
+    }
+
+    >.content-wrapper{
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .subtitle{
+      text-align: center;
+      padding: 30px 0;
+    }
+  }
+
+}
+
+@media screen and (max-width: 480px){
+
+  .page-server-detail{
+
+   .button-container{
+      &.left{
+        justify-content: center;
+      }
+   }
+
+  }
+
+}
