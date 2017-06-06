@@ -1,7 +1,6 @@
 // RxJS
 import 'rxjs'
 
-import 'jquery'
 import 'chart.js'
 import 'ng2-charts';
 
