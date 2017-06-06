@@ -23,6 +23,7 @@ export class Server {
     backends: {[key:string]: Backend} = {};
 
     _stats: ServerStats[] = [];
+    _maxStats: number = 20;
 
     discovery?: Discovery;
     healthcheck?: Healthcheck;
@@ -65,6 +66,9 @@ export class Server {
      * @param stats
      */
     public updateStats(stats: any): void {
+
+        if(this._stats.length >=20) this._stats.shift();
+
         this._stats.push({
             activeConnections: stats.active_connections,
             rxTotal: stats.rx_total,

@@ -18,26 +18,15 @@
     </div>
 
     <div class="content-wrapper">
-        <h2 class="subtitle">General stat</h2>
+        <h2 class="subtitle center">Active connections: {{backend.stats.activeConnection}}</h2>
         <div class="graphics-container">
             <div class="graphic">
                 <div class="graphic-content">
                     <ui-graphic
                             [arrStats]= "backend.getStatsHistory()"
-                            [lastElements]= "12"
-                            [showLegend]="false"
-                            [titleText]='"Active connection"'
-                            [shema]= "{activeConnection: 'Active Connections'}"
-                    ></ui-graphic>
-                </div>
-            </div>
-            <div class="graphic">
-                <div class="graphic-content">
-                    <ui-graphic
-                            [arrStats]= "backend.getStatsHistory()"
-                            [lastElements]= "12"
+                            [lastElements]= "backend.maxStats"
                             [showLegend]="true"
-                            [shema]= "{rxSecond: 'RX (mb/s)', txSecond: 'TX(mb/s)'}"
+                            [shema]= "['rxSecond', 'txSecond']"
                     ></ui-graphic>
                 </div>
             </div>

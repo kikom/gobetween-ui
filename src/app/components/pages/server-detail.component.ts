@@ -40,12 +40,11 @@ export class ServerDetailComponent implements OnInit, OnDestroy{
                 return this.serversService.fetched
             })
             .subscribe((data: any)=>{
-
-                console.log(this.serversService.fetched);
                 this.serverId = data[0];
 
-                if(this.serversService.getServer(this.serverId)){
-                    this.setServer()
+                let server = this.serversService.getServer(this.serverId);
+                if(server){
+                    this.server = server;
                 }else{
                     this.router.navigate(['../']);
                 }
@@ -56,13 +55,13 @@ export class ServerDetailComponent implements OnInit, OnDestroy{
         this.subs.unsubscribe();
     }
 
-    setServer(){
-        this.server = this.serversService.getServer(this.serverId);
-    }
-
     deleteServer(id: string) {
         this.serversService.deleteServer(id);
         this.router.navigate(['../'])
+    }
+
+    onSelectBackend(backend: any){
+        console.log(backend);
     }
 
 }

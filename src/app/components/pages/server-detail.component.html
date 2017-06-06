@@ -29,9 +29,9 @@
                     <div class="graphic-content">
                         <ui-graphic
                                 [arrStats]= "server._stats"
-                                [lastElements]= "12"
+                                [lastElements]= "server._maxStats"
                                 [showLegend]="true"
-                                [shema]= "{rxSecond: 'RX (mb/s)', txSecond: 'TX(mb/s)'}"
+                                [shema]= "['rxSecond', 'txSecond']"
                         ></ui-graphic>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
 
             <div class="backends-container">
                 <h2 class="subtitle">Backends</h2>
-                <ui-backends-table [rows]="server.backends" [serverId]="serverId" ></ui-backends-table>
+                <ui-backends-table [rows]="server.backends" (select)="onSelectBackend($event)" ></ui-backends-table>
             </div>
 
             <div class="stats-container">

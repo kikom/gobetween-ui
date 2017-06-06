@@ -13,6 +13,7 @@ export class Backend {
     };
 
     private _stats: BackendStats[] = [];
+    private _maxStats: number = 20;
 
     /**
      * Construct backend
@@ -44,6 +45,9 @@ export class Backend {
      * @param data
      */
     updateStats(data: any) {
+
+        if(this._stats.length >=20) this._stats.shift();
+
         this._stats.push({
             live: data.live,
             totalConnections: data.total_connections,
@@ -62,6 +66,15 @@ export class Backend {
      */
     get stats() {
         return _.last(this._stats);
+    }
+
+    /**
+     * Getter of maxStats
+     * @returns {T}
+     */
+
+    get maxStats() {
+        return this._maxStats;
     }
 
     /**

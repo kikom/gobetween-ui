@@ -12,10 +12,15 @@ export class BackendsTableComponent {
     @Input()
     rows: { [key:string]: Backend} = {};
 
-    @Input()
-    serverId: String;
+    @Output()
+
+    select: EventEmitter<any> = new EventEmitter();
 
     constructor(){
 
+    }
+
+    onClick(backned: any){
+        this.select.emit(backned);
     }
 }

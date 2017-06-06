@@ -104,32 +104,86 @@ export class ConnectionGraphic implements OnInit, AfterContentChecked{
             this.lineChartOptions.legend.display = true;
         }
 
+        let converter: Function;
+        let unit: string = this.getUnit(this.arrStats[0][this.shema[0]]);
+
+        switch (unit) {
+            case 'kb/s':
+                converter = this.toKB;
+                break;
+            case 'mb/s':
+                converter = this.toMB;
+                break;
+            case 'gb/s':
+                converter = this.toGB;
+                break;
+            case 'tb/s':
+                converter = this.toTB;
+                break;
+            default:
+                converter = (value:any)=> value;
+                break;
+        }
 
         let newLineChartData: Array<any> = [];
-        let slicedArrStats =  this.arrStats.length <= this.lastElements? this.arrStats: this.arrStats.slice((this.arrStats.length - this.lastElements));
+        let newLineChartLabels: any = [];
 
-        for(var key in this.shema){
+        for(let i=0;i< this.shema.length; i++){
 
             let line: any = {
                 data: [],
-                label: this.shema[key]
+                label: `${this.shema[i]} (${unit})`
             };
 
-            for(let i =0 ; i< slicedArrStats.length; i++){
-                line.data.push(slicedArrStats[i][key]);
+            for(let j =0 ; j< this.arrStats.length; j++){
+                line.data.push(converter(this.arrStats[j][this.shema[i]]));
             }
 
             newLineChartData.push(line);
         }
 
-
-        let newLineChartLabels: any = [];
-
         for (let i=0; i< this.lastElements; i++){
             newLineChartLabels.push(i);
         }
+
         this.lineChartLabels = newLineChartLabels;
-        this.lineChartData =newLineChartData;
+        this.lineChartData = newLineChartData;
+    }
+
+    getUnit(value: any){
+        let units = ['b/s', 'kb/s', 'mb/s', 'gb/s', 'tb/s'];
+
+        let result = {
+            value: value,
+            unit: units[0]
+        };
+
+        for(let i = 1; i< units.length;i++){
+            if(result.value>1024){
+                result.value = result.value/1024;
+                result.unit = units[i];
+            }else{
+                break;
+            }
+        }
+
+        return result.unit;
+    }
+
+    toKB(value: any){
+        return (value/1024).toFixed(2);
+    }
+
+    toMB(value: any){
+        return (value/(1024*1024)).toFixed(2);
+    }
+
+    toGB(value: any){
+        return (value/(1024*1024*1024)).toFixed(2);
+    }
+
+    toTB(value: any){
+        return (value/(1024*1024*1024*1024)).toFixed(2);
     }
 
     renderTooltipLabel(tooltipItem:any, data: any){

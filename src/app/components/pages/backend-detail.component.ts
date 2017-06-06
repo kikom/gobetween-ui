@@ -6,7 +6,7 @@ import {Backend} from "../../entities/backend";
 import {Server} from "../../entities/server";
 
 @Component({
-    selector: 'page-servers',
+    selector: 'backend-detail',
     templateUrl: 'backend-detail.component.html'
 })
 
@@ -46,13 +46,14 @@ export class BackendDetailComponent {
 
     setBackend(){
 
-        if(this.serversService.getServer(this.serverId)){
+        let server = this.serversService.getServer(this.serverId);
+        if(server){
+            this.server = server;
+            let backend = this.server.getBackend(this.backendId);
 
-            this.server = this.serversService.getServer(this.serverId);
-
-            if(this.server.getBackend(this.backendId)){
-
-                this.backend = this.serversService.getServer(this.serverId).getBackend(this.backendId);
+            if(backend){
+                this.backend = backend;
+                console.log(backend.stats);
             }
         }
 
