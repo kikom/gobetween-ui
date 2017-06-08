@@ -27,6 +27,10 @@ const appRoutes: Routes = [
         component: AppLayoutComponent,
         children: [
             {
+                path: 'servers/:server-id/:backend-id',
+                component: BackendDetailComponent
+            },
+            {
                 path: 'servers/:server-id',
                 component: ServerDetailComponent
             },

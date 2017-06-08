@@ -62,6 +62,7 @@ export class ServerDetailComponent implements OnInit, OnDestroy{
 
     onSelectBackend(backend: any){
         console.log(backend);
+        //this.router.navigate(['./',backend.key], {relativeTo: this.route});
     }
 
 }

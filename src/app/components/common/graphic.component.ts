@@ -120,9 +120,6 @@ export class ConnectionGraphic implements OnInit, AfterContentChecked{
             case 'tb/s':
                 converter = this.toTB;
                 break;
-            default:
-                converter = (value:any)=> value;
-                break;
         }
 
         let newLineChartData: Array<any> = [];
@@ -151,8 +148,8 @@ export class ConnectionGraphic implements OnInit, AfterContentChecked{
     }
 
     getUnit(value: any){
-        let units = ['b/s', 'kb/s', 'mb/s', 'gb/s', 'tb/s'];
 
+        let units = ['b/s', 'kb/s', 'mb/s', 'gb/s', 'tb/s'];
         let result = {
             value: value,
             unit: units[0]
@@ -171,19 +168,19 @@ export class ConnectionGraphic implements OnInit, AfterContentChecked{
     }
 
     toKB(value: any){
-        return (value/1024).toFixed(2);
+        return (value/1024).toFixed(0);
     }
 
     toMB(value: any){
-        return (value/(1024*1024)).toFixed(2);
+        return (value/(1024*1024)).toFixed(0);
     }
 
     toGB(value: any){
-        return (value/(1024*1024*1024)).toFixed(2);
+        return (value/(1024*1024*1024)).toFixed(0);
     }
 
     toTB(value: any){
-        return (value/(1024*1024*1024*1024)).toFixed(2);
+        return (value/(1024*1024*1024*1024)).toFixed(0);
     }
 
     renderTooltipLabel(tooltipItem:any, data: any){
