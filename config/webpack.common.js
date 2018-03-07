@@ -4,6 +4,8 @@ const webpack = require('webpack'),
     helpers = require('./helpers'),
     config = require('./app.config.json');
 
+ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+
 
 module.exports = {
     entry: {
@@ -13,7 +15,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.ts', '.js' ]
+        extensions: ['.ts', '.js']
     },
 
     module: {
@@ -43,29 +45,18 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap!sass-loader?sourceMap' })
-                //loader: ExtractTextPlugin.extract("style", "css?sourceMap!sass?sourceMap")
-            }/*,
-            {
-                test: /\.css$/,
-                include: helpers.root('src', 'app'),
-                loader: 'raw'
-            }*/
+            }
         ]
     },
 
     plugins: [
-        // Workaround for angular/angular#11580
-        new webpack.ContextReplacementPlugin(
-            // The (\\|\/) piece accounts for path separators in *nix and Windows
-            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-            helpers.root('./src'), // location of your src
-            {} // a map of your routes
-        ),
+
+        new webpack.ContextReplacementPlugin(/\@angular(\\|\/)core(\\|\/)esm5/,  helpers.root('./src')),
 
         new webpack.DefinePlugin({
             'process.env': {
-                'API': JSON.stringify(config.api),
-                'API_VERSION': JSON.stringify(config.version)
+                'ENV': JSON.stringify(ENV),
+                'config': JSON.stringify(config)
             }
         }),
 

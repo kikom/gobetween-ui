@@ -1,11 +1,7 @@
 const webpackMerge = require('webpack-merge'),
 ExtractTextPlugin = require('extract-text-webpack-plugin'),
 commonConfig = require('./webpack.common.js'),
-helpers = require('./helpers'),
-
-DefinePlugin = require('webpack/lib/DefinePlugin'),
-
-ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+helpers = require('./helpers');
 
 module.exports = webpackMerge(commonConfig, {
     devtool: 'cheap-module-eval-source-map',
@@ -18,15 +14,7 @@ module.exports = webpackMerge(commonConfig, {
     },
 
     plugins: [
-        new ExtractTextPlugin('[name].css'),
-        new DefinePlugin({
-            'ENV': JSON.stringify(ENV),
-            'process.env': {
-                'ENV': JSON.stringify(ENV),
-                'NODE_ENV': JSON.stringify(ENV),
-                'config': JSON.stringify(require('./app.config.json'))
-            }
-        })
+        new ExtractTextPlugin('[name].css')
     ],
 
     devServer: {
